@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 // import * as a from './../actions';
 import { withFirestore } from 'react-redux-firebase'
+import NewSleepForm from "./NewSleepForm";
+
 
 class SleepControl extends React.Component {
 
@@ -16,16 +18,32 @@ class SleepControl extends React.Component {
     }
   }
 
+  handleAddSleep = () => {
+    this.setState(prevState => ({
+      formVisible: !prevState.formVisible
+    }));
+  }
+
+  handleClick = () => {
+    this.setState(prevState => ({
+      formVisible: !prevState.formVisible
+    }));
+  }
+
   render(){
     let currentView = null;
     let buttonText = null;
-    currentView = <SleepHome />
+    if(this.state.formVisible){
+      currentView = <NewSleepForm onNewSleepCreation = {this.handleAddSleep} />
+      buttonText = "Return home"
+    } else {
+      currentView = <SleepHome />
+      buttonText = "Add sleep data"
+    }
     return(
       <React.Fragment>
-        <button>{buttonText}</button>
-        {currentView}
-
-        <h1>This is The main page</h1>
+          <button onClick={this.handleClick}>{buttonText}</button>
+          {currentView}
       </React.Fragment>
     )
   }
