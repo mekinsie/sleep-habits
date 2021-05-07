@@ -1,7 +1,9 @@
 import React from "react";
+import SleepHome from './SleepHome';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 // import * as a from './../actions';
+import { withFirestore } from 'react-redux-firebase'
 
 class SleepControl extends React.Component {
 
@@ -17,6 +19,7 @@ class SleepControl extends React.Component {
   render(){
     let currentView = null;
     let buttonText = null;
+    currentView = <SleepHome />
     return(
       <React.Fragment>
         <button>{buttonText}</button>
@@ -27,3 +30,5 @@ class SleepControl extends React.Component {
     )
   }
 }
+
+export default withFirestore(SleepControl);

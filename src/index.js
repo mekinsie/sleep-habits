@@ -13,7 +13,7 @@ const store = createStore(rootReducer);
 
 const rrfProps = {
   firebase,
-  confic: {
+  config: {
     userProfile: 'users'
   },
   dispatch: store.dispatch,
