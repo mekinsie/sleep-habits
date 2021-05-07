@@ -2,12 +2,10 @@ import React from 'react';
 import FadeIn from 'react-fade-in';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { useFirebase } from 'react-redux-firebase'
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
+import SleepDay from './SleepDay'
 
 function SleepHome(){
-
-  const firebase = useFirebase()
 
   const lastWeek = (date) =>{
     const newDate = new Date()
@@ -54,30 +52,21 @@ function SleepHome(){
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
-          {/* {sleepData.map((day)=>{
-          })} */}
-        <h1>This week's data:</h1>
-        {/* <p>{sleepData[0].date}</p>
-        <p>Wake Time: {sleepData[0].wakeTime}</p>
-        <p>Bed Time: {sleepData[0].bedTime}</p>
-        <p>Energy Level: {sleepData[0].energyLevel}</p>
-        <p>Mood Level: {sleepData[0].mood}</p>
-        <p></p>
-        <p>{sleepData[1].date}</p>
-        <p>Wake Time: {sleepData[1].wakeTime}</p>
-        <p>Bed Time: {sleepData[1].bedTime}</p>
-        <p>Energy Level: {sleepData[1].energyLevel}</p>
-        <p>Mood Level: {sleepData[1].mood}</p>
-        <p></p>
-        <p>{sleepData[2].date}</p>
-        <p>Wake Time: {sleepData[2].wakeTime}</p>
-        <p>Bed Time: {sleepData[2].bedTime}</p>
-        <p>Energy Level: {sleepData[2].energyLevel}</p>
-        <p>Mood Level: {sleepData[2].mood}</p> */}
+          {sleepData.map((day)=>{
+            return <SleepDay
+            date = {day.date}
+            wakeTime = {day.wakeTime}
+            bedTime = {day.bedTime}
+            energyLevel = {day.energyLevel}
+            mood = {day.mood}
+            id = {day.id}
+            key={day.id} 
+            />
+          })}
         {console.log(sleepData)}
         </FadeIn>
       </React.Fragment>
-    )
+    );
   } else {
     return (
       <>
