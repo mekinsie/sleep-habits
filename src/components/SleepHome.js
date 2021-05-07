@@ -6,7 +6,13 @@ import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 
 function SleepHome(){
 
-  const lastWeek = (day, month, year, date) =>{
+  const lastWeek = (date) =>{
+    const newDate = new Date()
+    const weekDate = new Date()
+    weekDate.setTime(newDate.getTime()-(7*24*3600000));
+    let day = weekDate.getDate()
+    let month = weekDate.getMonth() + 1
+    let year = weekDate.getFullYear()
     if (month < 10 && day < 10){
       date = `${year}-0${month}-0${day}`
     } else if (month < 10) {
@@ -33,16 +39,8 @@ function SleepHome(){
   // const thisWeek = sleepDate.where()
 
   if (isLoaded(sleepData)){
-    const newDate = new Date()
-    const weekDate = new Date()
-    weekDate.setTime(newDate.getTime()-(7*24*3600000));
-    let day = weekDate.getDate()
-    let month = weekDate.getMonth() + 1
-    let year = weekDate.getFullYear()
     let date;
-    date = lastWeek(day, month, year, date);
-    console.log(date)
-
+    date = lastWeek(date);
 
     return(
       <React.Fragment>
