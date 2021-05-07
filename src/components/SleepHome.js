@@ -2,9 +2,13 @@ import React from 'react';
 import FadeIn from 'react-fade-in';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { useFirebase } from 'react-redux-firebase'
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 
 function SleepHome(){
+
+  const firebase = useFirebase()
+
   const lastWeek = (date) =>{
     const newDate = new Date()
     const weekDate = new Date()
@@ -23,16 +27,25 @@ function SleepHome(){
     }
     return date
   }
+  
+  // const weekData = firebase.collection("sleepData").where("", ">=", "2021-04-30").orderBy("", "asc")
+  // console.log(weekData)
+
 
   // useFirestoreConnect((date) => [
-  //   {collection: 'sleepData', where: [["date", ">=", `${date}`]]}
-  // ]);
-
+    //   {collection: 'sleepData', where: [["date", ">=", `${date}`]]}
+    // ]);
+    
   useFirestoreConnect((date) => [
-    {collection: 'sleepData', queryParams: ["date", ">=", `${date}`]}
+    {collection: 'sleepData', queryParams: ['orderByChild=date']}
   ]);
 
   const sleepData = useSelector(state => state.firestore.ordered.sleepData);
+  // useFirestoreConnect((date) => [
+  //   {collection: 'sleepData'}
+  // ]);
+  
+
 
   if (isLoaded(sleepData)){
     let date;
