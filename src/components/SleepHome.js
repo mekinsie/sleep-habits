@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 
 function SleepHome(){
-
   const lastWeek = (date) =>{
     const newDate = new Date()
     const weekDate = new Date()
@@ -24,19 +23,16 @@ function SleepHome(){
     }
     return date
   }
-  // console.log(date);
 
-  // useFirestoreConnect([
-  //   {collection: 'sleepData', orderByChild: [['date']], startAt(date)}
+  // useFirestoreConnect((date) => [
+  //   {collection: 'sleepData', where: [["date", ">=", `${date}`]]}
   // ]);
 
-  useFirestoreConnect([
-    {collection: 'sleepData'}
+  useFirestoreConnect((date) => [
+    {collection: 'sleepData', queryParams: ["date", ">=", `${date}`]}
   ]);
 
   const sleepData = useSelector(state => state.firestore.ordered.sleepData);
-
-  // const thisWeek = sleepDate.where()
 
   if (isLoaded(sleepData)){
     let date;
@@ -48,7 +44,7 @@ function SleepHome(){
           {/* {sleepData.map((day)=>{
           })} */}
         <h1>This week's data:</h1>
-        <p>{sleepData[0].date}</p>
+        {/* <p>{sleepData[0].date}</p>
         <p>Wake Time: {sleepData[0].wakeTime}</p>
         <p>Bed Time: {sleepData[0].bedTime}</p>
         <p>Energy Level: {sleepData[0].energyLevel}</p>
@@ -64,7 +60,7 @@ function SleepHome(){
         <p>Wake Time: {sleepData[2].wakeTime}</p>
         <p>Bed Time: {sleepData[2].bedTime}</p>
         <p>Energy Level: {sleepData[2].energyLevel}</p>
-        <p>Mood Level: {sleepData[2].mood}</p>
+        <p>Mood Level: {sleepData[2].mood}</p> */}
         {console.log(sleepData)}
         </FadeIn>
       </React.Fragment>
