@@ -13,8 +13,8 @@ function NewSleepForm(props){
     return firestore.collection('sleepData').add(
       {
         date: event.target.date.value,
-        bedTime: event.target.bedTime.value,
         wakeTime: event.target.wakeTime.value,
+        bedTime: event.target.bedTime.value,
         energyLevel: event.target.energyLevel.value,
         mood: event.target.mood.value,
         timeOpen: firestore.FieldValue.serverTimestamp()
