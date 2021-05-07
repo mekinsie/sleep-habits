@@ -4,12 +4,14 @@ import PropTypes from "prop-types";
 function SleepDay(props) {
   return (
     <React.Fragment>
+      <div className='center'>
       <hr></hr>
       <p>{props.date}</p>
       <p>Wake Time: {props.wakeTime}</p>
       <p>Bed Time: {props.bedTime}</p>
       <p>Energy Level: {props.energyLevel}</p>
       <p>Mood Level: {props.mood}</p>
+      </div>
     </React.Fragment>
   );
 }
