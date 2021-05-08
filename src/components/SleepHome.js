@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import SleepDay from './SleepDay'
 
-function SleepHome(){
+function SleepHome(props){
 
   const lastWeek = (date) =>{
     const newDate = new Date()
@@ -55,6 +55,7 @@ function SleepHome(){
           <h1>This week's sleep data:</h1>
           {sleepData.map((day)=>{
             return <SleepDay
+            whenSleepClicked = {props.onSleepSelection}
             date = {day.date}
             wakeTime = {day.wakeTime}
             bedTime = {day.bedTime}
@@ -62,6 +63,7 @@ function SleepHome(){
             mood = {day.mood}
             id = {day.id}
             key={day.id} 
+            sleep={day}
             />
           })}
         {console.log(sleepData)}
@@ -76,5 +78,10 @@ function SleepHome(){
     );
   }
 }
+
+SleepHome.propTypes = {
+  onSleepSelection: PropTypes.func
+};
+
 
 export default SleepHome;

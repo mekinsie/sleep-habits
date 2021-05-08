@@ -2,9 +2,10 @@ import React from "react";
 import SleepHome from './SleepHome';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
-// import * as a from './../actions';
+import * as a from './../actions';
 import { withFirestore } from 'react-redux-firebase'
 import NewSleepForm from "./NewSleepForm";
+import SleepDetail from "./SleepDetail";
 
 
 class SleepControl extends React.Component {
@@ -12,11 +13,17 @@ class SleepControl extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      selectedDay: null,
+      selectedSleep: null,
       editing: false,
       formVisible: false
     }
   }
+
+handleSelectSleep = (sleep) => {
+  const selectedSleep = sleep
+  this.setState({selectedSleep: selectedSleep})
+  console.log(selectedSleep)
+}
 
   handleAddSleep = () => {
     this.setState(prevState => ({
@@ -25,19 +32,30 @@ class SleepControl extends React.Component {
   }
 
   handleClick = () => {
-    this.setState(prevState => ({
-      formVisible: !prevState.formVisible
-    }));
+    if (this.state.selectedSleep != null){
+      this.setState({
+        formVisible: false,
+        selectedSleep: null,
+        editing: false
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisible: !prevState.formVisible
+      }));
+    }
   }
 
   render(){
     let currentView = null;
     let buttonText = null;
-    if(this.state.formVisible){
-      currentView = <NewSleepForm onNewSleepCreation = {this.handleAddSleep} />
+    if (this.state.selectedSleep != null){
+      currentView = <SleepDetail sleep={this.state.selectedSleep}/>
+      buttonText = "Return home"
+    } else if (this.state.formVisible){
+      currentView = <NewSleepForm onNewSleepCreation={this.handleAddSleep} />
       buttonText = "Return home"
     } else {
-      currentView = <SleepHome />
+      currentView = <SleepHome onSleepSelection={this.handleSelectSleep} />
       buttonText = "Add sleep data"
     }
     return(

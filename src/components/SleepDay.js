@@ -6,7 +6,7 @@ function SleepDay(props) {
     <React.Fragment>
       <div className='center'>
       <hr></hr>
-      <p>{props.date}</p>
+      <h3 onClick = {() => props.whenSleepClicked(props.sleep)}>{props.date}</h3>
       <p>Wake Time: {props.wakeTime}</p>
       <p>Bed Time: {props.bedTime}</p>
       <p>Energy Level: {props.energyLevel}</p>
