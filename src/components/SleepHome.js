@@ -52,6 +52,10 @@ function SleepHome(props){
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
+          <div>
+            <button>See month</button>
+            <button>See year</button>
+          </div>
           <h1>This week's sleep data:</h1>
           {sleepData.map((day)=>{
             return <SleepDay
