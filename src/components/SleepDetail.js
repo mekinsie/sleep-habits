@@ -15,7 +15,7 @@ function SleepDetail(props){
           <h3>Energy Level: {props.sleep.energyLevel}</h3>
           <h3>Mood Level: {props.sleep.mood}</h3>
           <button onClick={() => props.onClickingDelete(props.sleep.id)}>Delete Sleep Log</button>
-          {/* <button onClick={props.onClickingEdit}>Edit Sleep Log</button> */}
+          <button onClick={props.onClickingEdit}>Edit Sleep Log</button>
         </div>
       </FadeIn>
     </>

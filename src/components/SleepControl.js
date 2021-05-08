@@ -6,6 +6,7 @@ import * as a from './../actions';
 import { withFirestore } from 'react-redux-firebase'
 import NewSleepForm from "./NewSleepForm";
 import SleepDetail from "./SleepDetail";
+import EditSleepForm from "./EditSleepForm";
 
 
 class SleepControl extends React.Component {
@@ -19,6 +20,13 @@ class SleepControl extends React.Component {
     }
   }
 
+  handleEditingSleep = () => {
+    this.setState({
+      editing: false,
+      selectedSleep: null,
+    })
+  }
+
   handleDeletingSleep = (id) => {
     this.props.firestore.delete({collection: 'sleepData', doc: id});
     this.setState({
@@ -26,16 +34,20 @@ class SleepControl extends React.Component {
     });
   }
 
-handleSelectSleep = (sleep) => {
-  const selectedSleep = sleep
-  this.setState({selectedSleep: selectedSleep})
-  console.log(selectedSleep)
-}
+  handleSelectSleep = (sleep) => {
+    const selectedSleep = sleep
+    this.setState({selectedSleep: selectedSleep})
+    console.log(selectedSleep)
+  }
 
   handleAddSleep = () => {
     this.setState(prevState => ({
       formVisible: !prevState.formVisible
     }));
+  }
+
+  handleEditClick = () => {
+    this.setState({editing: true});
   }
 
   handleClick = () => {
@@ -55,8 +67,11 @@ handleSelectSleep = (sleep) => {
   render(){
     let currentView = null;
     let buttonText = null;
-    if (this.state.selectedSleep != null){
-      currentView = <SleepDetail sleep={this.state.selectedSleep} onClickingDelete={this.handleDeletingSleep} />
+    if (this.state.editing){
+      currentView = <EditSleepForm sleep={this.state.selectedSleep} onEditSleep={this.handleEditingSleep} />
+      buttonText = "Return home"
+    } else if (this.state.selectedSleep != null){
+      currentView = <SleepDetail sleep={this.state.selectedSleep} onClickingEdit={this.handleEditClick} onClickingDelete={this.handleDeletingSleep} />
       buttonText = "Return home"
     } else if (this.state.formVisible){
       currentView = <NewSleepForm onNewSleepCreation={this.handleAddSleep} />
