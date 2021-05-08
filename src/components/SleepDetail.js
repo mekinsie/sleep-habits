@@ -14,7 +14,7 @@ function SleepDetail(props){
           <h3>Wake Time: {props.sleep.wakeTime}</h3>
           <h3>Energy Level: {props.sleep.energyLevel}</h3>
           <h3>Mood Level: {props.sleep.mood}</h3>
-          {/* <button onClick={() => props.onClickingDelete(sleep.id)}>Delete Sleep Log</button> */}
+          <button onClick={() => props.onClickingDelete(props.sleep.id)}>Delete Sleep Log</button>
           {/* <button onClick={props.onClickingEdit}>Edit Sleep Log</button> */}
         </div>
       </FadeIn>
@@ -23,7 +23,8 @@ function SleepDetail(props){
 }
 
 SleepDetail.propTypes={
-  selectedSleep: PropTypes.object
+  selectedSleep: PropTypes.object,
+  onClickingDelete: PropTypes.func
 }
 
 const mapStateToProps = state =>{

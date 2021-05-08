@@ -19,6 +19,13 @@ class SleepControl extends React.Component {
     }
   }
 
+  handleDeletingSleep = (id) => {
+    this.props.firestore.delete({collection: 'sleepData', doc: id});
+    this.setState({
+      selectedSleep: null,
+    });
+  }
+
 handleSelectSleep = (sleep) => {
   const selectedSleep = sleep
   this.setState({selectedSleep: selectedSleep})
@@ -49,7 +56,7 @@ handleSelectSleep = (sleep) => {
     let currentView = null;
     let buttonText = null;
     if (this.state.selectedSleep != null){
-      currentView = <SleepDetail sleep={this.state.selectedSleep}/>
+      currentView = <SleepDetail sleep={this.state.selectedSleep} onClickingDelete={this.handleDeletingSleep} />
       buttonText = "Return home"
     } else if (this.state.formVisible){
       currentView = <NewSleepForm onNewSleepCreation={this.handleAddSleep} />
