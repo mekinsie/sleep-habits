@@ -2,7 +2,7 @@ import React from 'react';
 import FadeIn from 'react-fade-in';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
+import { useFirestoreConnect, isLoaded} from 'react-redux-firebase';
 import SleepDay from './SleepDay'
 
 function SleepHome(props){
@@ -25,15 +25,14 @@ function SleepHome(props){
     }
     return date
   }
-  
+
   // const weekData = firebase.collection("sleepData").where("", ">=", "2021-04-30").orderBy("", "asc")
   // console.log(weekData)
-
 
   // useFirestoreConnect((date) => [
     //   {collection: 'sleepData', where: [["date", ">=", `${date}`]]}
     // ]);
-    
+
   useFirestoreConnect((date) => [
     {collection: 'sleepData', queryParams: ['orderByChild=date']}
   ]);
@@ -42,8 +41,6 @@ function SleepHome(props){
   // useFirestoreConnect((date) => [
   //   {collection: 'sleepData'}
   // ]);
-  
-
 
   if (isLoaded(sleepData)){
     let date;
@@ -86,6 +83,5 @@ function SleepHome(props){
 SleepHome.propTypes = {
   onSleepSelection: PropTypes.func
 };
-
 
 export default SleepHome;
