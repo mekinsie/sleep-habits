@@ -1,13 +1,10 @@
 import React from "react";
 import SleepHome from './SleepHome';
-import { connect } from 'react-redux';
-import PropTypes from "prop-types";
-import * as a from './../actions';
+// import { connect } from 'react-redux';
 import { withFirestore } from 'react-redux-firebase'
 import NewSleepForm from "./NewSleepForm";
 import SleepDetail from "./SleepDetail";
 import EditSleepForm from "./EditSleepForm";
-
 
 class SleepControl extends React.Component {
 
