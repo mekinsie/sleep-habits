@@ -26,14 +26,6 @@ function SleepHome(props){
     return date
   }
 
-  // let date;
-  // date = lastWeek(date);
-  // console.log(date)
-  // console.log('2021-05-03')
-  // console.log(`${date}`)
-  // console.log(typeof(date))
-  // console.log(date === '2021-05-03')
-
   useFirestoreConnect(() => {
     let date;
     date = lastWeek(date);
@@ -62,7 +54,7 @@ function SleepHome(props){
             energyLevel = {day.energyLevel}
             mood = {day.mood}
             id = {day.id}
-            key={day.id} 
+            key={day.id}
             sleep={day}
             />
           })}
