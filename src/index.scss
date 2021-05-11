@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
-
+@import "~react-vis/dist/style";
 * {
   margin: 0%;
   padding: 0%;
@@ -94,4 +94,10 @@ button {
     width: 100%;
     text-align: center;
   }
+}
+
+.bar-chart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

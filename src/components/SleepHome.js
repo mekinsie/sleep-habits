@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import SleepDay from './SleepDay'
 import styled from 'styled-components';
+import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalBarSeries} from 'react-vis';
 
 const HomeHeader = styled.h1`
   text-align: center;
@@ -52,6 +53,24 @@ function SleepHome(props){
             <button>See year</button>
           </div> */}
           <HomeHeader>This week's sleep data:</HomeHeader>
+          <div className="bar-chart">
+            <XYPlot
+              xType="ordinal"
+              width={300}
+              height={300}>
+              {/* <HorizontalGridLines /> */}
+              <VerticalBarSeries
+                color="#b6a4e0"
+                data={[
+                  {x: "Monday", y: 10},
+                  {x: "Tuesday", y: 5},
+                  {x: "Wednesday", y: 15}
+                ]}/>
+              <XAxis title="Day of Week"/>
+              <YAxis title="Total Hours of Sleep"/>
+            </XYPlot>
+          </div>
+
           {sleepData.map((day)=>{
             return <SleepDay
             whenSleepClicked = {props.onSleepSelection}
