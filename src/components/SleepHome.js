@@ -13,6 +13,17 @@ const HomeHeader = styled.h1`
   margin-bottom: 20px;
   `;
 
+
+const graphData=[
+  {x: "Mon", y: 10},
+  {x: "Tues", y: 9},
+  {x: "Wed", y: 9},
+  {x: "Thurs", y: 7},
+  {x: "Fri", y: 8},
+  {x: "Sat", y: 8.5},
+  {x: "Sun", y: 8}
+  ]
+
 function SleepHome(props){
 
   const lastWeek = (date) =>{
@@ -53,19 +64,16 @@ function SleepHome(props){
             <button>See year</button>
           </div> */}
           <HomeHeader>This week's sleep data:</HomeHeader>
-          <div className="bar-chart">
+          <div>
             <XYPlot
               xType="ordinal"
               width={300}
-              height={300}>
+              height={300}
+              className="bar-chart">
               {/* <HorizontalGridLines /> */}
               <VerticalBarSeries
                 color="#b6a4e0"
-                data={[
-                  {x: "Monday", y: 10},
-                  {x: "Tuesday", y: 5},
-                  {x: "Wednesday", y: 15}
-                ]}/>
+                data={graphData}/>
               <XAxis title="Day of Week"/>
               <YAxis title="Total Hours of Sleep"/>
             </XYPlot>
