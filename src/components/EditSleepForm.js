@@ -22,7 +22,7 @@ function EditSleepForm(props) {
   return (
     <React.Fragment>
       <FadeIn transitionDuration="1000">
-        <form id="form" onSubmit={handleEditSleepSubmission}>
+        <form className="form" onSubmit={handleEditSleepSubmission}>
           <div>
             <label>
               Date:
