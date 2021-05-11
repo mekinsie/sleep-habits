@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+
 * {
   margin: 0%;
   padding: 0%;
@@ -10,20 +11,19 @@ html {
 
 body {
 color: white;
-/* background-color: rgb(223, 222, 228); */
-background-image: linear-gradient(rgb(183, 183, 204), white);
+// background-color: rgb(223, 222, 228);
+background-color: rgb(58, 46, 122);
+background-image: linear-gradient( rgb(34, 28, 71),rgb(58, 46, 122));
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
-font-family: 'Manrope', sans-serif;
-}
+font-family: 'Inconsolata', monospace;}
 
 .center {
   text-align: center;
 }
 .form {
-  background-color: rgb(183, 183, 204);
-  box-shadow: 5px 5px 5px rgb(200, 190, 223);
+  background-color: rgb(180, 161, 197);
   color: white;
   width: 30%;
   margin:auto;
@@ -34,20 +34,23 @@ font-family: 'Manrope', sans-serif;
 }
 
 .sleep-data {
-  /* margin: 15px; */
-  background-color: rgb(183, 183, 204);
-  /* box-shadow: 5px 5px 5px rgb(200, 190, 223); */
+  background-color: rgb(180, 161, 197);
   color: white;
   width: 300px;
   margin:auto;
   padding: 50px;
   margin-bottom: 20px;
   border-radius: 10px;
-  /* opacity: 0.8; */
 }
 
 h1 {
   text-align: center;
+  // color: rgb(72, 72, 129);
+  color: white;
+}
+#h3-link:hover{
+  cursor: pointer;
+  color: rgb(72, 72, 129);
 }
 
 button {
