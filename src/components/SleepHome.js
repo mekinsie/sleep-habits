@@ -4,6 +4,13 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import SleepDay from './SleepDay'
+import styled from 'styled-components';
+
+const HomeHeader = styled.h1`
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  `;
 
 function SleepHome(props){
 
@@ -44,7 +51,7 @@ function SleepHome(props){
             <button>See month</button>
             <button>See year</button>
           </div> */}
-          <h1>This week's sleep data:</h1>
+          <HomeHeader>This week's sleep data:</HomeHeader>
           {sleepData.map((day)=>{
             return <SleepDay
             whenSleepClicked = {props.onSleepSelection}
