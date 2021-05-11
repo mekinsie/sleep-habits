@@ -7,12 +7,6 @@
 
 html {
   height: 100%;
-
-}
-
-#background {
-  background-image: url('img/noise.png');
-  opacity: 50%;
 }
 
 body {
@@ -29,6 +23,7 @@ font-family: 'Inconsolata', monospace;
 .center {
   text-align: center;
 }
+
 .form {
   background-color: rgb(180, 161, 197);
   color: white;
@@ -52,10 +47,10 @@ font-family: 'Inconsolata', monospace;
 
 h1 {
   text-align: center;
-  // color: rgb(72, 72, 129);
   color: white;
   margin-bottom: 20px;
 }
+
 #h3-link:hover{
   cursor: pointer;
   color: rgb(72, 72, 129);
@@ -77,14 +72,12 @@ button {
   }
 }
 
-/* Style the navigation menu */
 .navbar {
   width: 100%;
   background-color: rgb(29, 24, 59);
   overflow: auto;
 }
 
-/* Navigation links */
 .navbar a {
   float: left;
   padding-top: 20px;
@@ -94,24 +87,16 @@ button {
   font-size: 17px;
   width: 25%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
   text-align: center; /* If you want the text to be centered */
+  &:hover{
+    background-color: rgb(20, 16, 39);
+  }
 }
 
-/* Add a background color on mouse-over */
-.navbar a:hover {
-  background-color: rgb(13, 10, 26);
-}
-
-/* Style the current/active link */
-.navbar a.active {
-  background-color: #04AA6D;
-}
-
-/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
 @media screen and (max-width: 500px) {
   .navbar a {
     float: none;
     display: block;
     width: 100%;
-    text-align: left; /* If you want the text to be left-aligned on small screens */
+    text-align: center;
   }
 }
