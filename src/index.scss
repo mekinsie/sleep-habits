@@ -11,12 +11,11 @@ html {
 
 body {
 color: white;
-// background-color: rgb(223, 222, 228);
-background-color: rgb(58, 46, 122);
 background-image: linear-gradient( rgb(34, 28, 71),rgb(58, 46, 122));
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
+background-attachment: fixed;
 font-family: 'Inconsolata', monospace;
 }
 
