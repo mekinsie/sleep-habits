@@ -1,7 +1,60 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+/* * {
+  margin: 0%;
+  padding: 0%;
+} */
 
+html {
+  height: 100%;
+}
+
+body {
+color: white;
+/* background-color: rgb(223, 222, 228); */
+background-image: linear-gradient(rgb(183, 183, 204), white);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Manrope', sans-serif;
 }
 
 .center {
   text-align: center;
+}
+.form {
+  background-color: rgb(183, 183, 204);
+  box-shadow: 5px 5px 5px rgb(200, 190, 223);
+  color: white;
+  width: 30%;
+  margin:auto;
+  padding: 50px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.sleep-data {
+  /* margin: 15px; */
+  background-color: rgb(183, 183, 204);
+  box-shadow: 5px 5px 5px rgb(200, 190, 223);
+  color: white;
+  width: 30%;
+  margin:auto;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  /* opacity: 0.8; */
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  margin: auto;
+  display: block;
+  background-color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
 }

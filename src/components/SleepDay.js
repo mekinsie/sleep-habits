@@ -4,13 +4,14 @@ import PropTypes from "prop-types";
 function SleepDay(props) {
   return (
     <React.Fragment>
-      <div className='center'>
-      <hr></hr>
-      <h3 onClick = {() => props.whenSleepClicked(props.sleep)}>{props.date}</h3>
-      <p>Wake Time: {props.wakeTime}</p>
-      <p>Bed Time: {props.bedTime}</p>
-      <p>Energy Level: {props.energyLevel}</p>
-      <p>Mood Level: {props.mood}</p>
+      <div className="sleep-data">
+        <div className='center'>
+          <h3 onClick = {() => props.whenSleepClicked(props.sleep)}>{props.date}</h3>
+          <p>Wake Time: {props.wakeTime}</p>
+          <p>Bed Time: {props.bedTime}</p>
+          <p>Energy Level: {props.energyLevel}</p>
+          <p>Mood Level: {props.mood}</p>
+        </div>
       </div>
     </React.Fragment>
   );
