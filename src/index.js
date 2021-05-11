@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import './blob.scss';
 import App from './components/App';
 import {createStore} from 'redux';
 import rootReducer from './reducers/index.js';
