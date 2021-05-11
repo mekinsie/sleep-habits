@@ -14,7 +14,7 @@ const HomeHeader = styled.h1`
   `;
 
 
-const graphData=[
+const exData=[
   {x: "Mon", y: 10},
   {x: "Tues", y: 9},
   {x: "Wed", y: 9},
@@ -54,8 +54,29 @@ function SleepHome(props){
   });
 
   const sleepData = useSelector(state => state.firestore.ordered.sleepData);
+  console.log(sleepData)
+
+  const getGraphData = (sleepDataResponse)=> {
+    let graphData = []
+    for(let i=0; i<sleepDataResponse.length; i++){
+      graphData.push({x: sleepDataResponse[i].date, y: 10})
+    }
+    return graphData;
+  }
+  // const graphData = getGraphData(sleepData)
+
+  //   [
+  //   {x: sleepData[0].date, y: 10},
+  //   {x: "Tues", y: 9},
+  //   {x: "Wed", y: 9},
+  //   {x: "Thurs", y: 7},
+  //   {x: "Fri", y: 8},
+  //   {x: "Sat", y: 8.5},
+  //   {x: "Sun", y: 8}
+  // ]
 
   if (isLoaded(sleepData)){
+    const graphData = getGraphData(sleepData)
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
@@ -67,13 +88,13 @@ function SleepHome(props){
           <div>
             <XYPlot
               xType="ordinal"
-              width={300}
+              width={500}
               height={300}
               className="bar-chart">
               {/* <HorizontalGridLines /> */}
               <VerticalBarSeries
                 color="#b6a4e0"
-                data={graphData}/>
+                data={ graphData }/>
               <XAxis title="Day of Week"/>
               <YAxis title="Total Hours of Sleep"/>
             </XYPlot>
