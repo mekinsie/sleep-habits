@@ -24,7 +24,7 @@ function NewSleepForm(props){
 
   return(
     <React.Fragment>
-      <FadeIn>
+      <FadeIn transitionDuration='1000'>
         <div className="form">
           <ReusableForm
           formSubmissionHandler={addSleepToFirestore}
