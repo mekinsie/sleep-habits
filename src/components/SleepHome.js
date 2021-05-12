@@ -13,17 +13,6 @@ const HomeHeader = styled.h1`
   margin-bottom: 20px;
   `;
 
-
-const exData=[
-  {x: "Mon", y: 10},
-  {x: "Tues", y: 9},
-  {x: "Wed", y: 9},
-  {x: "Thurs", y: 7},
-  {x: "Fri", y: 8},
-  {x: "Sat", y: 8.5},
-  {x: "Sun", y: 8}
-  ]
-
 function SleepHome(props){
 
   const lastWeek = (date) =>{
@@ -49,31 +38,34 @@ function SleepHome(props){
     let date;
     date = lastWeek(date);
     return [
-      {collection: 'sleepData', where: [["date", ">=", `${date}`, console.log(date)]], orderBy: [["date", "desc"]]}
+      {collection: 'sleepData', where: [["date", ">=", `${date}`]], orderBy: [["date", "desc"]]}
     ]
   });
 
   const sleepData = useSelector(state => state.firestore.ordered.sleepData);
-  console.log(sleepData)
 
-  const getGraphData = (sleepDataResponse)=> {
+  const getGraphData = (data)=> {
     let graphData = []
-    for(let i=0; i<sleepDataResponse.length; i++){
-      graphData.push({x: sleepDataResponse[i].date, y: 10})
+    for(let i=0; i < data.length; i++){
+    if (i == data.length-1){
+      console.log(data);
+      console.log(data[i])
+      if (parseInt(data[i].bedTime.substring(0,2)) > 12){
+        graphData.push({x: data[i].date, y:0 })
+      } else {
+        graphData.push({x: data[i].date, y: Math.abs(
+          (parseInt(data[i+1].bedTime.substring(0,2)) + (parseInt(data[i+1].bedTime.substring(3,5))/60))
+          -
+          (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60))
+          )
+        })
+      }
     }
+
+    // console.log(Math.abs(((parseInt(data[i+1].bedTime.substring(0,2)) + (parseInt(data[i+1].bedTime.substring(3,5))/60)) - (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60)))))
+  }
     return graphData;
   }
-  // const graphData = getGraphData(sleepData)
-
-  //   [
-  //   {x: sleepData[0].date, y: 10},
-  //   {x: "Tues", y: 9},
-  //   {x: "Wed", y: 9},
-  //   {x: "Thurs", y: 7},
-  //   {x: "Fri", y: 8},
-  //   {x: "Sat", y: 8.5},
-  //   {x: "Sun", y: 8}
-  // ]
 
   if (isLoaded(sleepData)){
     const graphData = getGraphData(sleepData)
