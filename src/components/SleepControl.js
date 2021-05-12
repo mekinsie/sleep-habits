@@ -84,7 +84,7 @@ class SleepControl extends React.Component {
     if((isLoaded(auth)) && (auth.currentUser == null)){
       return (
         <React.Fragment>
-          <div className="card">
+          <div className="welcome">
           <h1 className="center">Welcome to Sleep Habits</h1>
           <Link to="/login"><button>Log in</button></Link>
           <Link to="/signup"><button>Create New Account</button></Link>

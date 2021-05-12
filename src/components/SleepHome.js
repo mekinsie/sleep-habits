@@ -59,8 +59,7 @@ function SleepHome(props){
     }
     return graphData;
   }
-  
-  
+
   if (isLoaded(sleepData)){
     let message;
     if (sleepData.length == 0){
