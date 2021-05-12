@@ -34,16 +34,16 @@ function SleepHome(props){
     return date
   }
 
-    useFirestoreConnect(() => {
-      let date;
-      date = lastWeek(date);
-      return [
-        {collection: 'sleepData', where: [["date", ">=", `${date}`], ["userEmail", "==", `${props.userEmail}`]], orderBy: [["date", "desc"]]}
-      ]
-    });
+  useFirestoreConnect(() => {
+    let date;
+    date = lastWeek(date);
+    return [
+      {collection: 'sleepData', where: [["date", ">=", `${date}`], ["userEmail", "==", `${props.userEmail}`]], orderBy: [["date", "desc"]]}
+    ]
+  });
 
   const sleepData = useSelector(state => state.firestore.ordered.sleepData);
-
+  
   const calculateSleepHours = (data, i) => {
     return Math.abs( (parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60) - (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60)) )
   }
@@ -59,19 +59,24 @@ function SleepHome(props){
     }
     return graphData;
   }
-
+  
+  
   if (isLoaded(sleepData)){
+    let message;
+    if (sleepData.length == 0){
+      message = 'Add a sleep log to start seeing data!'
+    }
     const graphData = getGraphData(sleepData)
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
           <button onClick={props.onClickAdd}>Add sleep log</button>
-
           {/* <div>
             <button>See month</button>
             <button>See year</button>
           </div> */}
           <HomeHeader>This week's sleep data:</HomeHeader>
+          <p className="center">{message}</p>
           <div>
             <XYPlot
               xType="ordinal"
