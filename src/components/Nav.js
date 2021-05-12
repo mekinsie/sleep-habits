@@ -26,7 +26,9 @@ function Nav(){
         <Link to="/signup">Sign Up</Link>
         <a onClick={doLogOut}>Log Out</a>
       </div>
+      <div className="card">
         <h1 className="center">Loading...</h1>
+      </div>
       </React.Fragment>
     )
   }
@@ -34,10 +36,8 @@ function Nav(){
     return (
       <React.Fragment>
         <div className="navbar">
-        <Link to="/">Home</Link>
-        {/* <Link to="/login">Log In</Link>
-        <Link to="/signup">Sign Up</Link> */}
-      </div>
+          <Link to="/">Home</Link>
+        </div>
       </React.Fragment>
     )
   }
