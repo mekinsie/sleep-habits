@@ -47,23 +47,23 @@ function SleepHome(props){
   const getGraphData = (data)=> {
     let graphData = []
     for(let i=0; i < data.length; i++){
-    if (i == data.length-1){
-      console.log(data);
-      console.log(data[i])
       if (parseInt(data[i].bedTime.substring(0,2)) > 12){
-        graphData.push({x: data[i].date, y:0 })
+        graphData.push({x: data[i].date, y:
+          24 -(Math.abs((parseInt(data[i+1].bedTime.substring(0,2))) + (parseInt(data[i+1].bedTime.substring(3,5))/60)
+          -
+          (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60))
+          ))
+        })
       } else {
-        graphData.push({x: data[i].date, y: Math.abs(
-          (parseInt(data[i+1].bedTime.substring(0,2)) + (parseInt(data[i+1].bedTime.substring(3,5))/60))
+        if (i < (data.length -2)){
+        graphData.push({x: data[i].date, y: Math.abs( (parseInt(data[i+1].bedTime.substring(0,2))) + (parseInt(data[i+1].bedTime.substring(3,5))/60)
           -
           (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60))
           )
         })
       }
+      }
     }
-
-    // console.log(Math.abs(((parseInt(data[i+1].bedTime.substring(0,2)) + (parseInt(data[i+1].bedTime.substring(3,5))/60)) - (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60)))))
-  }
     return graphData;
   }
 
