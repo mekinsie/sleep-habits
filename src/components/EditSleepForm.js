@@ -41,7 +41,7 @@ function EditSleepForm(props) {
           </div>
           <div>
             <label>
-              Wake Time:
+              Wake Time (this morning):
               <input
                 type='time'
                 name='wakeTime'
@@ -51,7 +51,7 @@ function EditSleepForm(props) {
           </div>
           <div>
             <label>
-              Bed Time:
+              Bed Time (previous night):
               <input
                 type='time'
                 name='bedTime'
