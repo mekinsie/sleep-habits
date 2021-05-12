@@ -5,7 +5,6 @@ import { withFirestore, isLoaded } from 'react-redux-firebase'
 import NewSleepForm from "./NewSleepForm";
 import SleepDetail from "./SleepDetail";
 import EditSleepForm from "./EditSleepForm";
-import Login from './Login';
 import { Link } from "react-router-dom";
 
 class SleepControl extends React.Component {
@@ -77,7 +76,7 @@ class SleepControl extends React.Component {
         <React.Fragment>
           <h1 className="center">Welcome</h1>
           <Link to="/login"><button>Log in</button></Link>
-          <Link to="/signup"><button>Sign Up</button></Link>
+          <Link to="/signup"><button>Create New Account</button></Link>
         </React.Fragment>
       )
     }
