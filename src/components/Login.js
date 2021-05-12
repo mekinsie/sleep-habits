@@ -5,16 +5,16 @@ import { Link, useHistory } from "react-router-dom";
 function Login() {
 
   const [message, editMessage] = useState(null)
+  const history = useHistory();
 
   const doLogIn = (event) => {
-    // const history = useHistory();
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
     firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
       editMessage("Successfully logged in!")
       console.log("skjdfh")
-      // useHistory().push("/")
+      history.push("/")
     }).catch((error) => {
       editMessage(`Error: ${error.message}`)
     });

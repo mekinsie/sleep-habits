@@ -6,6 +6,7 @@ import NewSleepForm from "./NewSleepForm";
 import SleepDetail from "./SleepDetail";
 import EditSleepForm from "./EditSleepForm";
 import Login from './Login';
+import { Link } from "react-router-dom";
 
 class SleepControl extends React.Component {
 
@@ -74,10 +75,13 @@ class SleepControl extends React.Component {
     if((isLoaded(auth)) && (auth.currentUser == null)){
       return (
         <React.Fragment>
-          <Login />
+          <h1 className="center">Welcome</h1>
+          <Link to="/login"><button>Log in</button></Link>
+          <Link to="/signup"><button>Sign Up</button></Link>
         </React.Fragment>
       )
     }
+
     if((isLoaded(auth)) && (auth.currentUser != null)){
       let currentView = null;
       let buttonText = null;
