@@ -34,13 +34,13 @@ function SleepHome(props){
     return date
   }
 
-  useFirestoreConnect(() => {
-    let date;
-    date = lastWeek(date);
-    return [
-      {collection: 'sleepData', where: [["date", ">=", `${date}`]], orderBy: [["date", "desc"]]}
-    ]
-  });
+    useFirestoreConnect(() => {
+      let date;
+      date = lastWeek(date);
+      return [
+        {collection: 'sleepData', where: [["date", ">=", `${date}`], ["userEmail", "==", 'email@gmail.com']], orderBy: [["date", "desc"]]}
+      ]
+    });
 
   const sleepData = useSelector(state => state.firestore.ordered.sleepData);
 
@@ -120,7 +120,8 @@ function SleepHome(props){
 
 SleepHome.propTypes = {
   onSleepSelection: PropTypes.func,
-  onClickAdd: PropTypes.func
+  onClickAdd: PropTypes.func,
+  userEmail: PropTypes.string
 };
 
 export default SleepHome;

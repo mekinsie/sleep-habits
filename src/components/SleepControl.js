@@ -93,6 +93,7 @@ class SleepControl extends React.Component {
       )
     }
     if((isLoaded(auth)) && (auth.currentUser != null)){
+      console.log(auth.currentUser.email)
       let currentView = null;
       if (this.state.editing){
         currentView = <EditSleepForm sleep={this.state.selectedSleep} onEditSleep={this.handleEditingSleep} />
@@ -101,7 +102,7 @@ class SleepControl extends React.Component {
       } else if (this.state.formVisible){
         currentView = <NewSleepForm onNewSleepCreation={this.handleAddSleep} />
       } else {
-        currentView = <SleepHome onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep} />
+        currentView = <SleepHome userEmail={auth.currentUser.email} onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep} />
       }
       return(
         <React.Fragment>
