@@ -6,7 +6,7 @@ function SleepDetail(props){
   return (
     <>
     <FadeIn transitionDuration="1000">
-        <div className="center">
+        <div className="center card">
           <h2>Sleep Log Details:</h2>
           <h3>Date:{props.sleep.date}</h3>
           <h3>Wake Time: {props.sleep.wakeTime}</h3>

@@ -19,14 +19,16 @@ function Signup(){
   }
     return(
       <React.Fragment>
-        <h1 className="center">Sign up</h1>
-        <form className="form" onSubmit={doSignUp}>
-          <input type='text' name='email' placeholder='Email'/>
-          <input type='password' name='password' placeholder='Password'/>
-          <button type='submit'>Sign up</button>
-        </form>
-        <p className="center" >{message}</p>
-        <Link to="/login"><button> Log In</button></Link>
+        <div className="card">
+          <h1 className="center">Sign up</h1>
+          <form className="form" onSubmit={doSignUp}>
+            <input type='text' name='email' placeholder='Email'/>
+            <input type='password' name='password' placeholder='Password'/>
+            <button type='submit'>Sign up</button>
+          </form>
+          <p className="center" >{message}</p>
+          <Link to="/login"><button> Log In</button></Link>
+        </div>
       </React.Fragment>
     )
 }

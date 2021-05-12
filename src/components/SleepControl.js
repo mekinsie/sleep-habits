@@ -6,6 +6,7 @@ import NewSleepForm from "./NewSleepForm";
 import SleepDetail from "./SleepDetail";
 import EditSleepForm from "./EditSleepForm";
 import { Link } from "react-router-dom";
+import Nav from "./Nav";
 
 class SleepControl extends React.Component {
 
@@ -62,11 +63,20 @@ class SleepControl extends React.Component {
     }
   }
 
+  handleClickHome = () => {
+    this.setState({
+      formVisible: false,
+      selectedSleep: null,
+      editing: false
+    });
+  }
+
   render(){
     const auth = this.props.firebase.auth();
     if(!isLoaded(auth)){
       return (
         <React.Fragment>
+          <Nav />
           <h1 className="center">Loading...</h1>
         </React.Fragment>
       )
@@ -82,26 +92,26 @@ class SleepControl extends React.Component {
         </React.Fragment>
       )
     }
-
     if((isLoaded(auth)) && (auth.currentUser != null)){
       let currentView = null;
       let buttonText = null;
       if (this.state.editing){
         currentView = <EditSleepForm sleep={this.state.selectedSleep} onEditSleep={this.handleEditingSleep} />
-        buttonText = "Return home"
+        // buttonText = "Return home"
       } else if (this.state.selectedSleep != null){
         currentView = <SleepDetail sleep={this.state.selectedSleep} onClickingEdit={this.handleEditClick} onClickingDelete={this.handleDeletingSleep} />
-        buttonText = "Return home"
+        // buttonText = "Return home"
       } else if (this.state.formVisible){
         currentView = <NewSleepForm onNewSleepCreation={this.handleAddSleep} />
-        buttonText = "Return home"
+        // buttonText = "Return home"
       } else {
-        currentView = <SleepHome onSleepSelection={this.handleSelectSleep} />
-        buttonText = "Add sleep log"
+        currentView = <SleepHome onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep} />
+        // buttonText = "Add sleep log"
       }
       return(
         <React.Fragment>
-            <button onClick={this.handleClick}>{buttonText}</button>
+            <Nav onClickHome={this.handleClickHome} />
+            {/* <button onClick={this.handleClick}>{buttonText}</button> */}
             {currentView}
         </React.Fragment>
       )

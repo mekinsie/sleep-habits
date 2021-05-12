@@ -22,14 +22,16 @@ function Login() {
 
   return(
     <React.Fragment>
-      <h1 className="center">Log in</h1>
-      <form className="form" onSubmit={doLogIn}>
-        <input type='text' name='email' placeholder='Email'/>
-        <input type='password' name='password' placeholder='Password'/>
-        <button type='submit'>Log In</button>
-      </form>
-      <p className="center" >{message}</p>
-      <Link to="/signup"><button> Create New Account</button></Link>
+      <div className="card">
+        <h1 className="center">Log in</h1>
+        <form className="form" onSubmit={doLogIn}>
+          <input type='text' name='email' placeholder='Email'/>
+          <input type='password' name='password' placeholder='Password'/>
+          <button type='submit'>Log In</button>
+        </form>
+        <p className="center" >{message}</p>
+        <Link to="/signup"><button> Create New Account</button></Link>
+      </div>
     </React.Fragment>
   )
 

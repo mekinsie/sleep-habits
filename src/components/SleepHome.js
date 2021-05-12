@@ -70,6 +70,8 @@ function SleepHome(props){
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
+          <button onClick={props.onClickAdd}>Add sleep log</button>
+
           {/* <div>
             <button>See month</button>
             <button>See year</button>
@@ -117,7 +119,8 @@ function SleepHome(props){
 }
 
 SleepHome.propTypes = {
-  onSleepSelection: PropTypes.func
+  onSleepSelection: PropTypes.func,
+  onClickAdd: PropTypes.func
 };
 
 export default SleepHome;
