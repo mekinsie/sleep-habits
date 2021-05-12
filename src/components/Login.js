@@ -11,7 +11,7 @@ class Login extends React.Component {
   }
 
   doLogIn = (event) => {
-    const history = useHistory();
+    // const history = useHistory();
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
@@ -19,7 +19,8 @@ class Login extends React.Component {
       this.setState({
         message: "Successfully logged in!"
       })
-      history.push("/")
+      console.log("skjdfh")
+      useHistory().push("/")
     }).catch((error) => {
       this.setState({
         message: `Error: ${error.message}`
