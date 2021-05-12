@@ -1,44 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import firebase from "firebase/app";
 import { Link } from "react-router-dom";
 
-class Signup extends React.Component{
+function Signup(){
 
-  constructor(props){
-    super(props);
-    this.state = {
-      message: null
-    }
-  }
+  const [message, editMessage] = useState(null)
 
-  doSignUp = (event) => {
+  const doSignUp = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
     firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
-      this.setState({
-        message: "Successfully signed up!"
-      })
+      editMessage("Successfully signed up!")
+
     }).catch((error) => {
-      this.setState({
-        message: `Error: ${error.message}`
-      })
+      editMessage(`Error: ${error.message}`)
     });
   }
-  render(){
     return(
       <React.Fragment>
         <h1 className="center">Sign up</h1>
-        <form className="form" onSubmit={this.doSignUp}>
+        <form className="form" onSubmit={doSignUp}>
           <input type='text' name='email' placeholder='Email'/>
           <input type='password' name='password' placeholder='Password'/>
           <button type='submit'>Sign up</button>
         </form>
-        <p className="center" >{this.state.message}</p>
+        <p className="center" >{message}</p>
         <Link to="/login"><button> Log In</button></Link>
       </React.Fragment>
     )
-  }
 }
 
 export default Signup;
