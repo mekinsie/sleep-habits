@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import firebase from "firebase/app";
+import { withFirestore, isLoaded } from 'react-redux-firebase'
 
 
 function Nav(){

@@ -28,7 +28,7 @@ class Login extends React.Component {
   render(){
     return(
       <React.Fragment>
-        <h1 class="center">Log in</h1>
+        <h1 className="center">Log in</h1>
         <form className="form" onSubmit={this.doLogIn}>
           <input type='text' name='email' placeholder='Email'/>
           <input type='password' name='password' placeholder='Password'/>
