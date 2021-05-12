@@ -13,7 +13,6 @@ function Login() {
     const password = event.target.password.value;
     firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
       editMessage("Successfully logged in!")
-      console.log("skjdfh")
       history.push("/")
     }).catch((error) => {
       editMessage(`Error: ${error.message}`)

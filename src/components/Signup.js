@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import firebase from "firebase/app";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Signup(){
 
   const [message, editMessage] = useState(null)
+  const history = useHistory();
 
   const doSignUp = (event) => {
     event.preventDefault();
@@ -12,7 +13,7 @@ function Signup(){
     const password = event.target.password.value;
     firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
       editMessage("Successfully signed up!")
-
+      history.push("/")
     }).catch((error) => {
       editMessage(`Error: ${error.message}`)
     });

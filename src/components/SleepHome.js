@@ -38,27 +38,22 @@ function SleepHome(props){
       let date;
       date = lastWeek(date);
       return [
-        {collection: 'sleepData', where: [["date", ">=", `${date}`], ["userEmail", "==", 'email@gmail.com']], orderBy: [["date", "desc"]]}
+        {collection: 'sleepData', where: [["date", ">=", `${date}`], ["userEmail", "==", `${props.userEmail}`]], orderBy: [["date", "desc"]]}
       ]
     });
 
   const sleepData = useSelector(state => state.firestore.ordered.sleepData);
 
+  const calculateSleepHours = (data, i) => {
+    return Math.abs( (parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60) - (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60)) )
+  }
   const getGraphData = (data)=> {
     let graphData = []
     for(let i=0; i < data.length; i++){
       if (parseInt(data[i].bedTime.substring(0,2)) > 12){
-        graphData.push({x: data[i].date, y:
-          24 - (Math.abs((parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60)
-          -
-          (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60))
-          ))
-        })
+        graphData.push({ x: data[i].date, y: 24 - (calculateSleepHours(data, i)) })
       } else {
-        graphData.push({x: data[i].date, y: Math.abs( (parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60)
-          -
-          (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60))
-          )
+        graphData.push({x: data[i].date, y: (calculateSleepHours(data, i))
         })
       }
     }
@@ -83,7 +78,7 @@ function SleepHome(props){
               width={500}
               height={300}
               className="bar-chart">
-              {/* <HorizontalGridLines /> */}
+              <HorizontalGridLines />
               <VerticalBarSeries
                 color="#b6a4e0"
                 data={ graphData }/>
