@@ -6,7 +6,6 @@ import { Link, useHistory } from "react-router-dom";
 
 function Nav(){
   const history = useHistory();
-
   function doLogOut() {
     firebase.auth().signOut().then(function() {
       console.log("Successfully signed out!");
@@ -16,23 +15,32 @@ function Nav(){
     });
   }
 
-  // const auth = this.props.firebase.auth();
-  // if(!isLoaded(auth)){
-  //   return (
-  //     <React.Fragment>
-  //       <h1 className="center">Loading...</h1>
-  //     </React.Fragment>
-  //   )
-  // }
-  // if((isLoaded(auth)) && (auth.currentUser == null)){
-  //   return (
-  //     <React.Fragment>
-  //       <h1 className="center">Welcome</h1>
-  //       <Link to="/login"><button>Log in</button></Link>
-  //       <Link to="/signup"><button>Create New Account</button></Link>
-  //     </React.Fragment>
-  //   )
-  // }
+  const auth = firebase.auth();
+
+  if(!isLoaded(auth)){
+    return (
+      <React.Fragment>
+      <div className="navbar">
+        <Link to="/">Home</Link>
+        <Link to="/login">Log In</Link>
+        <Link to="/signup">Sign Up</Link>
+        <a onClick={doLogOut}>Log Out</a>
+      </div>
+        <h1 className="center">Loading...</h1>
+      </React.Fragment>
+    )
+  }
+  if((isLoaded(auth)) && (auth.currentUser == null)){
+    return (
+      <React.Fragment>
+        <div className="navbar">
+        <Link to="/">Home</Link>
+        {/* <Link to="/login">Log In</Link>
+        <Link to="/signup">Sign Up</Link> */}
+      </div>
+      </React.Fragment>
+    )
+  }
 
   // if((isLoaded(auth)) && (auth.currentUser != null)){
 
@@ -41,8 +49,7 @@ function Nav(){
       <div className="navbar">
         <Link to="/">Home</Link>
         <a href="#">Profile</a>
-        <a href="#">Options</a>
-        <Link to="/login">Log In</Link>
+        <a href="#">Calendar</a>
         <a onClick={doLogOut}>Log Out</a>
       </div>
     </>
