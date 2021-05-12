@@ -2,14 +2,44 @@ import React from 'react';
 import firebase from "firebase/app";
 import { Link } from "react-router-dom";
 
-function Login(){
-  return(
-    <React.Fragment>
-      <h1 class="center">Log in</h1>
-      <button>Login</button>
-      <Link to="/signup"><button> Create New Account</button></Link>
-    </React.Fragment>
-  )
+class Login extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      message: null
+    }
+  }
+
+  doLogIn = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+      this.setState({
+        message: "Successfully logged in!"
+      })
+    }).catch((error) => {
+      this.setState({
+        message: `Error: ${error.message}`
+      })
+    });
+  }
+
+  render(){
+    return(
+      <React.Fragment>
+        <h1 class="center">Log in</h1>
+        <form className="form" onSubmit={this.doLogIn}>
+          <input type='text' name='email' placeholder='Email'/>
+          <input type='password' name='password' placeholder='Password'/>
+          <button type='submit'>Log In</button>
+        </form>
+        <p className="center" >{this.state.message}</p>
+        <Link to="/signup"><button> Create New Account</button></Link>
+      </React.Fragment>
+    )
+  }
+
 }
 
 export default Login;

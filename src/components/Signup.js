@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from "firebase/app";
+import { Link } from "react-router-dom";
 
 class Signup extends React.Component{
 
@@ -20,7 +21,7 @@ class Signup extends React.Component{
       })
     }).catch((error) => {
       this.setState({
-        message: `Error signing up: ${error.message}`
+        message: `Error: ${error.message}`
       })
     });
   }
@@ -34,6 +35,7 @@ class Signup extends React.Component{
           <button type='submit'>Sign up</button>
         </form>
         <p className="center" >{this.state.message}</p>
+        <Link to="/login"><button> Log In</button></Link>
       </React.Fragment>
     )
   }

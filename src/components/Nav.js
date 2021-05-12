@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import firebase from "firebase/app";
+
 
 function Nav(){
+  function doLogOut() {
+    firebase.auth().signOut().then(function() {
+      console.log("Successfully signed out!");
+    }).catch(function(error) {
+      console.log(error.message);
+    });
+  }
   return (
     <>
       <div className="navbar">
@@ -9,7 +18,7 @@ function Nav(){
         <a href="#">Profile</a>
         <a href="#">Options</a>
         <Link to="/login">Log In</Link>
-        <Link to="/signup">Sign Up</Link>
+        <a onClick={doLogOut}>Log Out</a>
       </div>
     </>
   );
