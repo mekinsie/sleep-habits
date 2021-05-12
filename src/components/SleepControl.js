@@ -75,7 +75,7 @@ class SleepControl extends React.Component {
       buttonText = "Return home"
     } else {
       currentView = <SleepHome onSleepSelection={this.handleSelectSleep} />
-      buttonText = "Add sleep data"
+      buttonText = "Add sleep log"
     }
     return(
       <React.Fragment>

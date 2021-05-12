@@ -89,7 +89,7 @@ function SleepHome(props){
               <YAxis title="Total Hours of Sleep"/>
             </XYPlot>
           </div>
-
+          <HomeHeader>This week's sleep logs:</HomeHeader>
           {sleepData.map((day)=>{
             return <SleepDay
             whenSleepClicked = {props.onSleepSelection}
