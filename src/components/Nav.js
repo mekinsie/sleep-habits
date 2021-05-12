@@ -1,6 +1,6 @@
 import React from "react";
 import firebase from "firebase/app";
-import { withFirestore, isLoaded } from 'react-redux-firebase'
+import { isLoaded } from 'react-redux-firebase'
 import { Link, useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -44,7 +44,7 @@ function Nav(props){
       </React.Fragment>
     )
   }
-
+  
   if((isLoaded(auth)) && (auth.currentUser != null)){
     return (
       <>

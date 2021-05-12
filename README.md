@@ -6,7 +6,7 @@
 
 ## Description
 
-Sleep habits is a tracking app that allows you to focus on improving your sleep hygiene (develop healthy sleep habits.
+Sleep habits is a tracking app that allows you to focus on improving your sleep hygiene (develop healthy sleep habits).
 
 * * *
 

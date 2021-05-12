@@ -6,6 +6,12 @@ function ReusableForm(props) {
     <React.Fragment>
       <form id="form" onSubmit={props.formSubmissionHandler}>
         <div>
+          <input
+          type="text"
+          name="userEmail"
+          value={props.userEmail}
+          hidden
+          />
           <label>
             Date:
             <input
@@ -76,7 +82,8 @@ function ReusableForm(props) {
 
 ReusableForm.propTypes = {
   formSubmissionHandler: PropTypes.func,
-  buttonText: PropTypes.string
+  buttonText: PropTypes.string,
+  userEmail: PropTypes.string
 };
 
 export default ReusableForm;

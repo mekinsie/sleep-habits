@@ -3,9 +3,14 @@ import PropTypes from "prop-types";
 import ReusableForm from "./ReusableForm";
 import { useFirestore } from 'react-redux-firebase'
 import FadeIn from 'react-fade-in';
+import { isLoaded } from 'react-redux-firebase'
+import firebase from "firebase/app";
+
+
 
 function NewSleepForm(props){
   const firestore = useFirestore();
+  const auth = firebase.auth();
 
   function addSleepToFirestore(event){
     event.preventDefault();
@@ -17,22 +22,34 @@ function NewSleepForm(props){
         bedTime: event.target.bedTime.value,
         energyLevel: event.target.energyLevel.value,
         mood: event.target.mood.value,
-        timeOpen: firestore.FieldValue.serverTimestamp()
+        timeOpen: firestore.FieldValue.serverTimestamp(),
+        userEmail: auth.currentUser.email
       }
     )
   }
 
-  return(
-    <React.Fragment>
-      <FadeIn transitionDuration='1000'>
-        <div className="form card">
-          <ReusableForm
-          formSubmissionHandler={addSleepToFirestore}
-          buttonText="Save Sleep" />
-        </div>
-      </FadeIn>
-    </React.Fragment>
-  );
+  if(!isLoaded(auth)){
+    return (
+      <React.Fragment>
+        <h1 className="center">Loading...</h1>
+      </React.Fragment>
+    )
+  }
+
+  if(isLoaded(auth)) {
+    return(
+      <React.Fragment>
+        <FadeIn transitionDuration='1000'>
+          <div className="form card">
+            <ReusableForm
+            userEmail = {auth.currentUser.email}
+            formSubmissionHandler={addSleepToFirestore}
+            buttonText="Save Sleep" />
+          </div>
+        </FadeIn>
+      </React.Fragment>
+    );
+  }
 }
 
 NewSleepForm.propTypes = {

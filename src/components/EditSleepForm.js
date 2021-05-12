@@ -24,6 +24,12 @@ function EditSleepForm(props) {
       <FadeIn transitionDuration="1000">
         <form className="form card" onSubmit={handleEditSleepSubmission}>
           <div>
+            <input
+            type="text"
+            name="userEmail"
+            value={props.userEmail}
+            hidden
+            />
             <label>
               Date:
               <input
