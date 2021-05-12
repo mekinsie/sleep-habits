@@ -20,7 +20,8 @@ function Signup(){
     return(
       <React.Fragment>
         <div className="card">
-          <h1 className="center">Sign up</h1>
+          <h1 className="center">Sleep Habits</h1><br></br>
+          <h2 className="center">Sign up</h2>
           <form className="form" onSubmit={doSignUp}>
             <input type='text' name='email' placeholder='Email'/>
             <input type='password' name='password' placeholder='Password'/>

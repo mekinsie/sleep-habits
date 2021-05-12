@@ -85,7 +85,7 @@ class SleepControl extends React.Component {
       return (
         <React.Fragment>
           <div className="card">
-          <h1 className="center">Welcome</h1>
+          <h1 className="center">Welcome to Sleep Habits</h1>
           <Link to="/login"><button>Log in</button></Link>
           <Link to="/signup"><button>Create New Account</button></Link>
           </div>
@@ -94,19 +94,14 @@ class SleepControl extends React.Component {
     }
     if((isLoaded(auth)) && (auth.currentUser != null)){
       let currentView = null;
-      let buttonText = null;
       if (this.state.editing){
         currentView = <EditSleepForm sleep={this.state.selectedSleep} onEditSleep={this.handleEditingSleep} />
-        // buttonText = "Return home"
       } else if (this.state.selectedSleep != null){
         currentView = <SleepDetail sleep={this.state.selectedSleep} onClickingEdit={this.handleEditClick} onClickingDelete={this.handleDeletingSleep} />
-        // buttonText = "Return home"
       } else if (this.state.formVisible){
         currentView = <NewSleepForm onNewSleepCreation={this.handleAddSleep} />
-        // buttonText = "Return home"
       } else {
         currentView = <SleepHome onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep} />
-        // buttonText = "Add sleep log"
       }
       return(
         <React.Fragment>

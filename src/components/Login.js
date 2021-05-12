@@ -23,7 +23,8 @@ function Login() {
   return(
     <React.Fragment>
       <div className="card">
-        <h1 className="center">Log in</h1>
+        <h1 className="center">Sleep Habits</h1><br></br>
+        <h2 className="center">Log in</h2>
         <form className="form" onSubmit={doLogIn}>
           <input type='text' name='email' placeholder='Email'/>
           <input type='password' name='password' placeholder='Password'/>
