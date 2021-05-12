@@ -64,7 +64,7 @@ function SleepHome(props){
   if (isLoaded(sleepData)){
     let message;
     if (sleepData.length == 0){
-      message = 'Add a sleep log to start seeing data!'
+      message = 'Add a sleep log to start seeing data! Each log will need a wake time and a bed time to show up on the graph.'
     }
     const graphData = getGraphData(sleepData)
     return(
