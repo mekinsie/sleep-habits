@@ -25,6 +25,7 @@ class SleepControl extends React.Component {
     this.setState({
       editing: false,
       selectedSleep: null,
+      user: null
     })
   }
 
@@ -74,6 +75,7 @@ class SleepControl extends React.Component {
 
   render(){
     const auth = this.props.firebase.auth();
+
     if(!isLoaded(auth)){
       return (
         <React.Fragment>
@@ -82,11 +84,12 @@ class SleepControl extends React.Component {
         </React.Fragment>
       )
     }
-    if((isLoaded(auth)) && (auth.currentUser == null)){
+
+    if(isLoaded(auth) && auth.currentUser == null){
       return (
         <React.Fragment>
           <div className="welcome">
-          <h1 className="center">Welcome to Sleep Habits</h1>
+            <h1 className="center">Welcome to Sleep Habits</h1>
           </div>
           <Link to="/login"><button>Log in</button></Link>
           <Link to="/signup"><button>Create New Account</button></Link>
@@ -94,7 +97,7 @@ class SleepControl extends React.Component {
       )
     }
 
-    if((isLoaded(auth)) && (auth.currentUser != null)){
+    if(isLoaded(auth) && auth.currentUser != null){
       console.log(auth.currentUser.email)
       let currentView = null;
       if (this.state.editing){

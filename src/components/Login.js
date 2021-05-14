@@ -8,6 +8,7 @@ function Login() {
   const [message, editMessage] = useState(null)
   const history = useHistory();
   const auth = firebase.auth();
+
   const doLogIn = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -25,6 +26,7 @@ function Login() {
     auth.signInWithPopup(googleProvider).then((result) => {
       console.log(result.user)
       editMessage("Successfully logged in!")
+      history.push("/")
     }).catch((error) => {
       console.log(error.message)
       editMessage(`Error: ${error.message}`)

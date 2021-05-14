@@ -21,7 +21,6 @@ function Signup(){
   }
 
   const googleProvider = new firebase.auth.GoogleAuthProvider()
-
   const signInWithGoogle = () => {
     auth.signInWithPopup(googleProvider).then((res) => {
       console.log(res.user)
