@@ -1,10 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from 'styled-components';
 
 function SleepDay(props) {
+
+  const SleepData = styled.div`
+    background-color: rgb(29, 24, 59);
+    color: white;
+    width: 300px;
+    margin:auto;
+    padding: 50px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    opacity: 0.9;
+  `;
+
   return (
     <React.Fragment>
-      <div className="sleep-data">
+      <SleepData>
         <div className='center'>
           <span id="h3-link"><h3 onClick = {() => props.whenSleepClicked(props.sleep)}>{props.date}</h3></span>
           <p>Bed Time: {props.bedTime}</p>
@@ -12,7 +25,7 @@ function SleepDay(props) {
           <p>Energy Level: {props.energyLevel}</p>
           <p>Mood Level: {props.mood}</p>
         </div>
-      </div>
+      </SleepData>
     </React.Fragment>
   );
 }
