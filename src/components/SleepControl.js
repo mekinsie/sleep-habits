@@ -8,19 +8,25 @@ import EditSleepForm from "./EditSleepForm";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import UserSettings from "./UserSettings";
+import firebase from "firebase/app";
 
 
 class SleepControl extends React.Component {
 
   constructor(props){
     super(props);
+    firebase.auth().onAuthStateChanged((user)=> {
+      this.setState({ user: user });
+    });
     this.state={
       selectedSleep: null,
       editing: false,
       formVisible: false,
-      settingsVisible: false
+      settingsVisible: false,
     }
   }
+
+
 
   handleEditingSleep = () => {
     this.setState({
@@ -88,7 +94,7 @@ class SleepControl extends React.Component {
 
   render(){
     const auth = this.props.firebase.auth();
-
+    
     if(!isLoaded(auth)){
       return (
         <React.Fragment>
