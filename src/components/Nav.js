@@ -50,10 +50,10 @@ function Nav(props){
       <>
         <div className="navbar">
           {/* <Link to="/">Home</Link> */}
-          <a onClick={props.onClickHome}>Home</a>
-          <a href="#">Profile</a>
-          <a onClick={props.onClickSettings}>Settings</a>
-          <a onClick={doLogOut}>Log Out</a>
+          <p onClick={props.onClickHome}>Home</p>
+          <p href="#">Profile</p>
+          <p onClick={props.onClickSettings}>Settings</p>
+          <p onClick={doLogOut}>Log Out</p>
         </div>
       </>
     );
