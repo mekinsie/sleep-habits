@@ -95,8 +95,8 @@ function SleepHome(props){
             return <SleepDay
             whenSleepClicked = {props.onSleepSelection}
             date = {day.date}
-            wakeTime = {day.wakeTime}
             bedTime = {day.bedTime}
+            wakeTime = {day.wakeTime}
             energyLevel = {day.energyLevel}
             mood = {day.mood}
             id = {day.id}

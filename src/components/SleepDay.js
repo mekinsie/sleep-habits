@@ -7,8 +7,8 @@ function SleepDay(props) {
       <div className="sleep-data">
         <div className='center'>
           <span id="h3-link"><h3 onClick = {() => props.whenSleepClicked(props.sleep)}>{props.date}</h3></span>
-          <p>Wake Time: {props.wakeTime}</p>
           <p>Bed Time: {props.bedTime}</p>
+          <p>Wake Time: {props.wakeTime}</p>
           <p>Energy Level: {props.energyLevel}</p>
           <p>Mood Level: {props.mood}</p>
         </div>

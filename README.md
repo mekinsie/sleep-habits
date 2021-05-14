@@ -20,9 +20,9 @@ Sleep habits is a tracking app that allows you to focus on improving your sleep 
 * Redux
 * Firebase
 
-* * *
-## Component Diagram
-<img src="./src/img/component-diagram.png" alt="component diagram" width="650">
+<!-- * * * -->
+<!-- ## Component Diagram
+<img src="./src/img/component-diagram.png" alt="component diagram" width="650"> -->
 
 * * *
 

@@ -9,8 +9,8 @@ function SleepDetail(props){
         <div className="center card">
           <h2>Sleep Log Details:</h2>
           <h3>Date:{props.sleep.date}</h3>
-          <h3>Wake Time: {props.sleep.wakeTime}</h3>
           <h3>Bed Time: {props.sleep.bedTime}</h3>
+          <h3>Wake Time: {props.sleep.wakeTime}</h3>
           <h3>Wake Time: {props.sleep.wakeTime}</h3>
           <h3>Energy Level: {props.sleep.energyLevel}</h3>
           <h3>Mood Level: {props.sleep.mood}</h3>
