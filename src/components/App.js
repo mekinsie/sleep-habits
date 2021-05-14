@@ -4,6 +4,7 @@ import SleepControl from './SleepControl';
 import Login from './Login';
 import Signup from './Signup';
 import Stars from './Stars';
+import DeleteAccount from './DeleteAccount';
 
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
         </Route>
         <Route path="/signup">
           <Signup />
+        </Route>
+        <Route path="/deleteAccount">
+          <DeleteAccount />
         </Route>
         <Route path="/">
           <SleepControl />

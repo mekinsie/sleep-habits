@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import firebase from "firebase/app";
 import FadeIn from 'react-fade-in';
+import { Link } from "react-router-dom";
+
 
 function UserSettings(){
   const [message, editMessage] = useState(null)
@@ -19,12 +21,14 @@ function UserSettings(){
   return(
     <React.Fragment>
       <FadeIn transitionDuration="1000">
-        <p>Update Password:</p>
+        <h1 className="center">Email: {auth.currentUser.email}</h1>
+        <h2 className="center">Update Password:</h2>
         <form className="form" onSubmit={doChangePass}>
           <input type='password' name='password' placeholder='New Password'/>
           <button type='submit'>Update Password</button>
         </form>
-        <p >{message}</p>
+        <p>{message}</p>
+        <Link to="/deleteAccount">Delete my account</Link>
       </FadeIn>
     </React.Fragment>
   )

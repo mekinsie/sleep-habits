@@ -43,7 +43,7 @@ function SleepHome(props){
   });
 
   const sleepData = useSelector(state => state.firestore.ordered.sleepData);
-  
+
   const calculateSleepHours = (data, i) => {
     return Math.abs( (parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60) - (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60)) )
   }
