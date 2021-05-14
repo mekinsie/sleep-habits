@@ -7,6 +7,7 @@ import SleepDetail from "./SleepDetail";
 import EditSleepForm from "./EditSleepForm";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
+import UserSettings from "./UserSettings";
 
 
 class SleepControl extends React.Component {
@@ -17,7 +18,7 @@ class SleepControl extends React.Component {
       selectedSleep: null,
       editing: false,
       formVisible: false,
-      user: null
+      settingsVisible: false
     }
   }
 
@@ -25,7 +26,8 @@ class SleepControl extends React.Component {
     this.setState({
       editing: false,
       selectedSleep: null,
-      user: null
+      user: null,
+      settingsVisible: false
     })
   }
 
@@ -56,7 +58,8 @@ class SleepControl extends React.Component {
       this.setState({
         formVisible: false,
         selectedSleep: null,
-        editing: false
+        editing: false,
+        settingsVisible: false
       });
     } else {
       this.setState(prevState => ({
@@ -69,7 +72,17 @@ class SleepControl extends React.Component {
     this.setState({
       formVisible: false,
       selectedSleep: null,
-      editing: false
+      editing: false,
+      settingsVisible: false
+    });
+  }
+
+  handleClickSettings = () => {
+    this.setState({
+      formVisible: false,
+      selectedSleep: null,
+      editing: false,
+      settingsVisible: true
     });
   }
 
@@ -79,7 +92,6 @@ class SleepControl extends React.Component {
     if(!isLoaded(auth)){
       return (
         <React.Fragment>
-          <Nav />
           <h1 className="center">Loading...</h1>
         </React.Fragment>
       )
@@ -98,9 +110,11 @@ class SleepControl extends React.Component {
     }
 
     if(isLoaded(auth) && auth.currentUser != null){
-      console.log(auth.currentUser.email)
       let currentView = null;
-      if (this.state.editing){
+
+      if (this.state.settingsVisible){
+        currentView = <UserSettings />
+      } else if (this.state.editing){
         currentView = <EditSleepForm sleep={this.state.selectedSleep} onEditSleep={this.handleEditingSleep} />
       } else if (this.state.selectedSleep != null){
         currentView = <SleepDetail sleep={this.state.selectedSleep} onClickingEdit={this.handleEditClick} onClickingDelete={this.handleDeletingSleep} />
@@ -111,7 +125,7 @@ class SleepControl extends React.Component {
       }
       return(
         <React.Fragment>
-            <Nav onClickHome={this.handleClickHome} />
+            <Nav onClickSettings={this.handleClickSettings} onClickHome={this.handleClickHome} />
             {/* <button onClick={this.handleClick}>{buttonText}</button> */}
             {currentView}
         </React.Fragment>

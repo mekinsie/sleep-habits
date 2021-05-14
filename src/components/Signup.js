@@ -13,8 +13,9 @@ function Signup(){
     const email = event.target.email.value;
     const password = event.target.password.value;
     auth.createUserWithEmailAndPassword(email, password).then(() => {
-      editMessage("Successfully signed up!")
-      history.push("/")
+      editMessage("Successfully signed up!");
+      auth.currentUser.sendEmailVerification()
+      history.push("/");
     }).catch((error) => {
       editMessage(`Error: ${error.message}`)
     });
@@ -49,7 +50,7 @@ function Signup(){
           </div>
 
 
-          <p >{message}</p>
+          <p>{message}</p>
           <p>Have an account?</p><Link to="/login">Log in</Link>
         </div>
       </React.Fragment>

@@ -52,7 +52,7 @@ function Nav(props){
           {/* <Link to="/">Home</Link> */}
           <a onClick={props.onClickHome}>Home</a>
           <a href="#">Profile</a>
-          <a href="#">Calendar</a>
+          <a onClick={props.onClickSettings}>Settings</a>
           <a onClick={doLogOut}>Log Out</a>
         </div>
       </>
