@@ -8,14 +8,16 @@ import EditSleepForm from "./EditSleepForm";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
+
 class SleepControl extends React.Component {
-  
+
   constructor(props){
     super(props);
     this.state={
       selectedSleep: null,
       editing: false,
-      formVisible: false
+      formVisible: false,
+      user: null
     }
   }
 
@@ -25,29 +27,29 @@ class SleepControl extends React.Component {
       selectedSleep: null,
     })
   }
-  
+
   handleDeletingSleep = (id) => {
     this.props.firestore.delete({collection: 'sleepData', doc: id});
     this.setState({
       selectedSleep: null,
     });
   }
-  
+
   handleSelectSleep = (sleep) => {
     const selectedSleep = sleep
     this.setState({selectedSleep: selectedSleep})
   }
-  
+
   handleAddSleep = () => {
     this.setState(prevState => ({
       formVisible: !prevState.formVisible
     }));
   }
-  
+
   handleEditClick = () => {
     this.setState({editing: true});
   }
-  
+
   handleClick = () => {
     if (this.state.selectedSleep != null){
       this.setState({
@@ -61,7 +63,7 @@ class SleepControl extends React.Component {
       }));
     }
   }
-  
+
   handleClickHome = () => {
     this.setState({
       formVisible: false,
@@ -69,7 +71,7 @@ class SleepControl extends React.Component {
       editing: false
     });
   }
-  
+
   render(){
     const auth = this.props.firebase.auth();
     if(!isLoaded(auth)){
@@ -85,12 +87,13 @@ class SleepControl extends React.Component {
         <React.Fragment>
           <div className="welcome">
           <h1 className="center">Welcome to Sleep Habits</h1>
+          </div>
           <Link to="/login"><button>Log in</button></Link>
           <Link to="/signup"><button>Create New Account</button></Link>
-          </div>
         </React.Fragment>
       )
     }
+
     if((isLoaded(auth)) && (auth.currentUser != null)){
       console.log(auth.currentUser.email)
       let currentView = null;

@@ -5,6 +5,7 @@ import Login from './Login';
 import Signup from './Signup';
 import Stars from './Stars';
 
+
 function App() {
   return (
     <Router>
@@ -26,7 +27,5 @@ function App() {
     </Router>
   );
 }
-
-
 
 export default App;
