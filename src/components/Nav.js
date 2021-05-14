@@ -23,10 +23,10 @@ function Nav(props){
       <React.Fragment>
       <div className="navbar">
         {/* <Link to="/">Home</Link> */}
-        <a onClick={props.onClickHome}>Home</a>
+        <a onClick={props.onClickHome} href="#">Home</a>
         <Link to="/login">Log In</Link>
         <Link to="/signup">Sign Up</Link>
-        <a onClick={doLogOut}>Log Out</a>
+        <a onClick={doLogOut} href="#">Log Out</a>
       </div>
       <div className="card">
         <h1 className="center">Loading...</h1>

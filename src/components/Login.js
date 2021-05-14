@@ -1,7 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useContext, useState} from 'react';
 import firebase from "firebase/app";
 import { Link, useHistory } from "react-router-dom";
 import "firebase/auth";
+
+// import { UserContext } from './providers/UserProvider';
+// import { Redirect } from 'react-router-dom';
+// const user = useContext(UserContext)
+// const [redirect, setredirect] = useState(null)
+
 
 
 function Login() {
@@ -23,12 +29,13 @@ function Login() {
   }
 
   const googleProvider = new firebase.auth.GoogleAuthProvider()
-
   const signInWithGoogle = () => {
     auth.signInWithPopup(googleProvider).then((res) => {
       console.log(res.user)
+      editMessage("Successfully logged in!")
     }).catch((error) => {
       console.log(error.message)
+      editMessage(`Error: ${error.message}`)
     })
   }
 

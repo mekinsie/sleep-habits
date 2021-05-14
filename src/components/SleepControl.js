@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
 class SleepControl extends React.Component {
-
+  
   constructor(props){
     super(props);
     this.state={
@@ -25,30 +25,29 @@ class SleepControl extends React.Component {
       selectedSleep: null,
     })
   }
-
+  
   handleDeletingSleep = (id) => {
     this.props.firestore.delete({collection: 'sleepData', doc: id});
     this.setState({
       selectedSleep: null,
     });
   }
-
+  
   handleSelectSleep = (sleep) => {
     const selectedSleep = sleep
     this.setState({selectedSleep: selectedSleep})
-    console.log(selectedSleep)
   }
-
+  
   handleAddSleep = () => {
     this.setState(prevState => ({
       formVisible: !prevState.formVisible
     }));
   }
-
+  
   handleEditClick = () => {
     this.setState({editing: true});
   }
-
+  
   handleClick = () => {
     if (this.state.selectedSleep != null){
       this.setState({
@@ -62,7 +61,7 @@ class SleepControl extends React.Component {
       }));
     }
   }
-
+  
   handleClickHome = () => {
     this.setState({
       formVisible: false,
@@ -70,7 +69,7 @@ class SleepControl extends React.Component {
       editing: false
     });
   }
-
+  
   render(){
     const auth = this.props.firebase.auth();
     if(!isLoaded(auth)){
