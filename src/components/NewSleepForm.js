@@ -6,8 +6,6 @@ import FadeIn from 'react-fade-in';
 import { isLoaded } from 'react-redux-firebase'
 import firebase from "firebase/app";
 
-
-
 function NewSleepForm(props){
   const firestore = useFirestore();
   const auth = firebase.auth();
@@ -24,8 +22,7 @@ function NewSleepForm(props){
         mood: event.target.mood.value,
         timeOpen: firestore.FieldValue.serverTimestamp(),
         userEmail: auth.currentUser.email
-      }
-    )
+      });
   }
 
   if(!isLoaded(auth)){

@@ -26,8 +26,6 @@ class SleepControl extends React.Component {
     }
   }
 
-
-
   handleEditingSleep = () => {
     this.setState({
       editing: false,
@@ -94,7 +92,6 @@ class SleepControl extends React.Component {
 
   render(){
     const auth = this.props.firebase.auth();
-    
     if(!isLoaded(auth)){
       return (
         <React.Fragment>

@@ -48,8 +48,6 @@ function Signup(){
             <span> Continue with Google</span>
             </button>
           </div>
-
-
           <p>{message}</p>
           <p>Have an account?</p><Link to="/login">Log in</Link>
         </div>

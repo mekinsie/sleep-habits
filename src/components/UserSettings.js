@@ -3,8 +3,8 @@ import firebase from "firebase/app";
 import FadeIn from 'react-fade-in';
 import { Link } from "react-router-dom";
 
-
 function UserSettings(){
+
   const [message, editMessage] = useState(null)
   const auth = firebase.auth();
 
@@ -27,8 +27,8 @@ function UserSettings(){
           <input type='password' name='password' placeholder='New Password'/>
           <button type='submit'>Update Password</button>
         </form>
+        <Link className="link" to="/deleteAccount">Delete my account</Link>
         <p>{message}</p>
-        <Link to="/deleteAccount">Delete my account</Link>
       </FadeIn>
     </React.Fragment>
   )
