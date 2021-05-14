@@ -12,6 +12,72 @@ function App() {
       <div className="container">
       <div className="moving_shape"></div>
       </div>
+
+
+
+      <div className="container2">
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+    </div>
       <Switch>
         <Route path="/login">
           <Login />

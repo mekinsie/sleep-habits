@@ -4,17 +4,20 @@ html {
 	font-size: 10px;
 }
 
-body {
-	background: linear-gradient(180deg, #000000, #000033);
-	height: 100vh;
-}
+// body {
+	// background: linear-gradient(180deg, #000000, #000033);
+	// height: 100vh;
+	// z-index: -2;
+// }
 
-.container {
+.container2 {
 	height: 100vh;
-	perspective: 120rem;
-	position: relative;
+	position: fixed;
+	left:0;
+	top: 0;
 	transform-style: preserve-3d;
 	width: 100%;
+	z-index: -2;
 }
 
 .p {
@@ -30,7 +33,6 @@ body {
 
 @for $i from 1 through $count {
 	$size: random(5) * 0.05rem;
-	
 	.p:nth-child(#{$i}) {
 		animation-delay: random(10) / random(9) + 0s;
 		animation-duration: random(4) / random(3) + 0s;

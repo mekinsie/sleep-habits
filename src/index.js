@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import './blob.scss';
+import './stars.scss';
 import App from './components/App';
 import {createStore} from 'redux';
 import rootReducer from './reducers/index.js';
@@ -11,7 +12,7 @@ import { createFirestoreInstance } from 'redux-firestore';
 import firebase from "./firebase";
 import 'firebase/auth'
 
-const store = createStore(rootReducer); 
+const store = createStore(rootReducer);
 
 const rrfProps = {
   firebase,
