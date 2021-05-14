@@ -3,16 +3,16 @@ import firebase from "firebase/app";
 import FadeIn from 'react-fade-in';
 import {useHistory } from "react-router-dom";
 import "firebase/auth";
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded, withFirestore } from 'react-redux-firebase';
 
 function DeleteAccount(props) {
   const history = useHistory();
 
-  // useFirestoreConnect(() => {
-  //   return [ {collection: 'sleepData', where: [["userEmail", "==", `${props.userEmail}`]]} ] 
-  // });
-  // const sleepData = useSelector(state => state.firestore.ordered.sleepData);
+  useFirestoreConnect(() => {
+    return [ {collection: 'sleepData', where: [["userEmail", "==", `${props.userEmail}`]]} ] 
+  });
+  const sleepData = useSelector(state => state.firestore.ordered.sleepData);
 
   function deleteAccount() {
     firebase.auth().currentUser.delete().then(function() {
