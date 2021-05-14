@@ -44,7 +44,7 @@ function Nav(props){
       </React.Fragment>
     )
   }
-  
+
   if((isLoaded(auth)) && (auth.currentUser != null)){
     return (
       <>

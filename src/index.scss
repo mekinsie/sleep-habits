@@ -17,6 +17,7 @@ background-repeat: no-repeat;
 height: 100%;
 background-attachment: fixed;
 font-family: 'Inconsolata', monospace;
+margin-top: 100px;
 }
 
 .center {
@@ -72,6 +73,9 @@ button {
   width: 100%;
   background-color: rgb(29, 24, 59);
   overflow: auto;
+  position: fixed;
+  top: 0;
+  z-index: 1;
   & a {
     float: left;
     padding-top: 20px;
