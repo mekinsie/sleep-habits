@@ -127,6 +127,38 @@ function Stars(){
         <div className="p"></div>
         <div className="p"></div>
         <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
+        <div className="p"></div>
     </div>
       </React.Fragment>
     )
