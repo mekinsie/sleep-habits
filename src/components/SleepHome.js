@@ -10,6 +10,12 @@ const HomeHeader = styled.h1`
   text-align: center;
   color: white;
   margin-bottom: 20px;
+  margin-top: 30px;
+  `;
+
+  const GraphTitle = styled.h2`
+  text-align: center;
+  margin-top: 50px;
   `;
 
 function SleepHome(props){
@@ -47,6 +53,13 @@ function SleepHome(props){
       }
       return wakeData;
     }
+  const getBedData = (data) => {
+    let bedData = []
+    for(let i=0; i < data.length; i++){
+        bedData.push({ x: data[i].date, y: (parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60) })
+      }
+      return bedData;
+    }
 
   if (isLoaded(sleepData)){
     console.log(sleepData)
@@ -56,6 +69,7 @@ function SleepHome(props){
     }
     const graphData = getGraphData(sleepData)
     const wakeData = getWakeData(sleepData)
+    const bedData = getBedData(sleepData)
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
@@ -66,7 +80,7 @@ function SleepHome(props){
           </div> */}
           <HomeHeader>This week's sleep data:</HomeHeader>
           <p className="center">{message}</p>
-          <HomeHeader>Hours of Sleep</HomeHeader>
+          <GraphTitle>Hours of Sleep</GraphTitle>
           <div>
             <XYPlot
               xType="ordinal"
@@ -77,11 +91,45 @@ function SleepHome(props){
               <VerticalBarSeries
                 color="#b6a4e0"
                 data={ graphData }/>
-              <XAxis title="Date"/>
-              <YAxis title="Total Hours of Sleep"/>
+              <XAxis title="Date" style={{
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+              <YAxis title="Total Hours of Sleep" style={{
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
             </XYPlot>
           </div>
-          <HomeHeader>Wake Times</HomeHeader>
+          <GraphTitle>Wake Times</GraphTitle>
+          <div>
+            <XYPlot
+              xType="ordinal"
+              yType="linear"
+              yDomain={[0,23]}
+              width={500}
+              height={300}
+              className="bar-chart">
+              <HorizontalGridLines
+              tickTotal = {24}
+              width={6}
+              style={{
+                stroke: 'white',
+                opacity: '0.2'
+                }}
+                />
+              <LineSeries
+                color="#b6a4e0"
+                data={ wakeData }/>
+              <XAxis title="Date" style={{
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}
+                />
+              <YAxis title="Wake Times (24 hour clock)" style={{
+                fill: 'white',
+                line: {stroke: 'white'},
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+            </XYPlot>
+          </div>
+          <GraphTitle>Bed Times</GraphTitle>
           <div>
             <XYPlot
               xType="ordinal"
@@ -90,12 +138,30 @@ function SleepHome(props){
               width={500}
               height={300}
               className="bar-chart">
-              <HorizontalGridLines />
+              <HorizontalGridLines
+              tickTotal = {24}
+              width= {6}
+              style={{
+                stroke: 'white',
+                opacity: '0.2'
+                }}
+              />
               <LineSeries
                 color="#b6a4e0"
-                data={ wakeData }/>
-              <XAxis title="Date"/>
-              <YAxis title="Wake Times (24 hour clock)"/>
+                data={ bedData }/>
+              <XAxis
+              title="Date"
+              style={{
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+              <YAxis
+                title="Bed Times (24 hour clock)"
+                style={{
+                // line: {stroke: 'black'},
+                // ticks: {stroke: 'black'},
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}
+              />
             </XYPlot>
           </div>
         </FadeIn>
