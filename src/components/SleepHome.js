@@ -90,21 +90,6 @@ function SleepHome(props){
               <YAxis title="Total Hours of Sleep"/>
             </XYPlot>
           </div>
-          <HomeHeader>This week's sleep logs:</HomeHeader>
-          {sleepData.map((day)=>{
-            return <SleepDay
-            whenSleepClicked = {props.onSleepSelection}
-            date = {day.date}
-            bedTime = {day.bedTime}
-            wakeTime = {day.wakeTime}
-            energyLevel = {day.energyLevel}
-            mood = {day.mood}
-            id = {day.id}
-            key={day.id}
-            sleep={day}
-            />
-          })}
-        {console.log(sleepData)}
         </FadeIn>
       </React.Fragment>
     );
