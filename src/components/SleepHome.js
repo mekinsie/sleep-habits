@@ -24,7 +24,7 @@ function SleepHome(props){
     let date;
     date = props.lastWeek(date);
     return [
-      {collection: 'sleepData', where: [["date", ">=", `${date}`], ["userEmail", "==", `${props.userEmail}`]], orderBy: [["date", "desc"]]}
+      {collection: 'sleepData', where: [["date", ">=", `${date}`], ["userEmail", "==", `${props.userEmail}`]], orderBy: [["date", "asc"]]}
     ]
   });
 
@@ -74,10 +74,6 @@ function SleepHome(props){
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
           <button onClick={props.onClickAdd}>Add sleep log</button>
-          {/* <div>
-            <button>See month</button>
-            <button>See year</button>
-          </div> */}
           <HomeHeader>This week's sleep data:</HomeHeader>
           <p className="center">{message}</p>
           <GraphTitle>Hours of Sleep</GraphTitle>
@@ -134,7 +130,9 @@ function SleepHome(props){
             <XYPlot
               xType="ordinal"
               yType="linear"
-              yDomain={[0,24]}
+              yDomain={[0,23]}
+              // yRange={[12,13,14,15,16,17,18,19,20,21,22,23,24,1,2,3,4,5,6,7,8,9,10,11]}
+              // yDomain={[12,13,14,15,16,17,18,19,20,21,22,23,24,1,2,3,4,5,6,7,8,9,10,11]}
               width={500}
               height={300}
               className="bar-chart">
