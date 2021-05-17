@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import styled from 'styled-components';
-import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalBarSeries} from 'react-vis';
+import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalBarSeries, LineSeries} from 'react-vis';
 
 const HomeHeader = styled.h1`
   text-align: center;
@@ -27,7 +27,7 @@ function SleepHome(props){
   const calculateSleepHours = (data, i) => {
     return Math.abs( (parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60) - (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60)) )
   }
-  const getGraphData = (data)=> {
+  const getGraphData = (data) => {
     let graphData = []
     for(let i=0; i < data.length; i++){
       if (parseInt(data[i].bedTime.substring(0,2)) > 12){
@@ -40,12 +40,22 @@ function SleepHome(props){
     return graphData;
   }
 
+  const getWakeData = (data) => {
+    let wakeData = []
+    for(let i=0; i < data.length; i++){
+        wakeData.push({ x: data[i].date, y: (parseInt(data[i].wakeTime.substring(0,2))) + (parseInt(data[i].wakeTime.substring(3,5))/60) })
+      }
+      return wakeData;
+    }
+
   if (isLoaded(sleepData)){
+    console.log(sleepData)
     let message;
     if (sleepData.length == 0){
       message = 'Add a sleep log to start seeing data! Each log will need a wake time and a bed time to show up on the graph.'
     }
     const graphData = getGraphData(sleepData)
+    const wakeData = getWakeData(sleepData)
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
@@ -56,6 +66,7 @@ function SleepHome(props){
           </div> */}
           <HomeHeader>This week's sleep data:</HomeHeader>
           <p className="center">{message}</p>
+          <HomeHeader>Hours of Sleep</HomeHeader>
           <div>
             <XYPlot
               xType="ordinal"
@@ -66,8 +77,25 @@ function SleepHome(props){
               <VerticalBarSeries
                 color="#b6a4e0"
                 data={ graphData }/>
-              <XAxis title="Day of Week"/>
+              <XAxis title="Date"/>
               <YAxis title="Total Hours of Sleep"/>
+            </XYPlot>
+          </div>
+          <HomeHeader>Wake Times</HomeHeader>
+          <div>
+            <XYPlot
+              xType="ordinal"
+              yType="linear"
+              yDomain={[0,24]}
+              width={500}
+              height={300}
+              className="bar-chart">
+              <HorizontalGridLines />
+              <LineSeries
+                color="#b6a4e0"
+                data={ wakeData }/>
+              <XAxis title="Date"/>
+              <YAxis title="Wake Times (24 hour clock)"/>
             </XYPlot>
           </div>
         </FadeIn>
