@@ -105,6 +105,25 @@ class SleepControl extends React.Component {
     });
   }
 
+  lastWeek = (date) =>{
+    const newDate = new Date()
+    const weekDate = new Date()
+    weekDate.setTime(newDate.getTime()-(7*24*3600000));
+    let day = weekDate.getDate()
+    let month = weekDate.getMonth() + 1
+    let year = weekDate.getFullYear()
+    if (month < 10 && day < 10){
+      date = `${year}-0${month}-0${day}`
+    } else if (month < 10) {
+      date = `${year}-0${month}-${day}`
+    } else if (day < 10) {
+      date = `${year}-${month}-0${day}`
+    } else {
+      date = `${year}-${month}-${day}`
+    }
+    return date
+  }
+
   render(){
     const auth = this.props.firebase.auth();
     if(!isLoaded(auth)){
@@ -139,9 +158,9 @@ class SleepControl extends React.Component {
       } else if (this.state.formVisible){
         currentView = <NewSleepForm onNewSleepCreation={this.handleAddSleep} />
       } else if (this.state.logsVisible){
-        currentView = <SleepLogs userEmail={auth.currentUser.email} onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep} />
+        currentView = <SleepLogs lastWeek={this.lastWeek} userEmail={auth.currentUser.email} onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep} />
       } else {
-        currentView = <SleepHome userEmail={auth.currentUser.email} onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep}/>
+        currentView = <SleepHome lastWeek={this.lastWeek} userEmail={auth.currentUser.email} onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep}/>
       }
       return(
         <React.Fragment>
