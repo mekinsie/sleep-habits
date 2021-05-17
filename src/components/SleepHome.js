@@ -18,6 +18,13 @@ const HomeHeader = styled.h1`
   margin-top: 50px;
   `;
 
+  const Welcome = styled.div`
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  `;
+
 function SleepHome(props){
 
   useFirestoreConnect(() => {
@@ -73,6 +80,10 @@ function SleepHome(props){
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
+          <Welcome>
+            <h1 className="center">Welcome!</h1>
+            <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday. The graphs below can help you to visualize which days need better sleep habits.</p>
+          </Welcome>
           <button onClick={props.onClickAdd}>Add sleep log</button>
           <HomeHeader>This week's sleep data :</HomeHeader>
           <HomeHeader>{`${sleepData[0].date.substring(5,7)}/${sleepData[0].date.substring(8,10)}`} - {`${sleepData[sleepData.length -1].date.substring(5,7)}/${sleepData[sleepData.length-1].date.substring(8,10)}`}</HomeHeader>
