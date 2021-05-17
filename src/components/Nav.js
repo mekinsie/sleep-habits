@@ -52,7 +52,7 @@ function Nav(props){
           {/* <Link to="/">Home</Link> */}
           <p onClick={props.onClickHome}>Home</p>
           <p href="#">Profile</p>
-          <p href="#">Sleep Logs</p>
+          <p onClick={props.onClickLogs}>Sleep Logs</p>
           <p onClick={props.onClickSettings}>Settings</p>
           <p onClick={doLogOut}>Log Out</p>
         </div>
@@ -62,7 +62,9 @@ function Nav(props){
 }
 
 Nav.propTypes={
-  onClickHome: PropTypes.func
+  onClickHome: PropTypes.func,
+  onClickLogs: PropTypes.func,
+  onClickSettings: PropTypes.func
 }
 
 

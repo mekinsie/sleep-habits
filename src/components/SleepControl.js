@@ -75,6 +75,16 @@ class SleepControl extends React.Component {
     }
   }
 
+  handleClickLogs = () => {
+    this.setState({
+      formVisible: false,
+      selectedSleep: null,
+      editing: false,
+      settingsVisible: false,
+      logsVisible: true
+    });
+  }
+
   handleClickHome = () => {
     this.setState({
       formVisible: false,
@@ -131,11 +141,11 @@ class SleepControl extends React.Component {
       } else if (this.state.logsVisible){
         currentView = <SleepLogs userEmail={auth.currentUser.email} onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep} />
       } else {
-        currentView = <SleepHome userEmail={auth.currentUser.email} onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep} />
+        currentView = <SleepHome userEmail={auth.currentUser.email} onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep}/>
       }
       return(
         <React.Fragment>
-            <Nav onClickSettings={this.handleClickSettings} onClickHome={this.handleClickHome} />
+            <Nav onClickSettings={this.handleClickSettings} onClickHome={this.handleClickHome}  onClickLogs={this.handleClickLogs} />
             {/* <button onClick={this.handleClick}>{buttonText}</button> */}
             {currentView}
         </React.Fragment>
