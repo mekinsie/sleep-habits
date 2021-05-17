@@ -27,7 +27,7 @@ function SleepLogs(props){
   if (isLoaded(sleepData)){
     let message;
     if (sleepData.length == 0){
-      message = 'Add a sleep log to start seeing data! Each log will need a wake time and a bed time to show up on the graph.'
+      message = 'Add a sleep log to get started!'
     }
     return(
       <React.Fragment>
@@ -38,7 +38,7 @@ function SleepLogs(props){
             <button>See year</button>
           </div> */}
           <HomeHeader>This week's sleep logs:</HomeHeader>
-          {message}
+          <p className="center">{message}</p>
           {sleepData.map((day)=>{
             return <SleepDay
             whenSleepClicked = {props.onSleepSelection}

@@ -37,9 +37,9 @@ function SleepHome(props){
     let graphData = []
     for(let i=0; i < data.length; i++){
       if (parseInt(data[i].bedTime.substring(0,2)) > 12){
-        graphData.push({ x: data[i].date, y: 24 - (calculateSleepHours(data, i)) })
+        graphData.push({ x: `${data[i].date.substring(5,7)}/${data[i].date.substring(8,10)}`, y: 24 - (calculateSleepHours(data, i)) })
       } else {
-        graphData.push({x: data[i].date, y: (calculateSleepHours(data, i))
+        graphData.push({x: `${data[i].date.substring(5,7)}/${data[i].date.substring(8,10)}`, y: (calculateSleepHours(data, i))
         })
       }
     }
@@ -49,14 +49,14 @@ function SleepHome(props){
   const getWakeData = (data) => {
     let wakeData = []
     for(let i=0; i < data.length; i++){
-        wakeData.push({ x: data[i].date, y: (parseInt(data[i].wakeTime.substring(0,2))) + (parseInt(data[i].wakeTime.substring(3,5))/60) })
+        wakeData.push({ x: `${data[i].date.substring(5,7)}/${data[i].date.substring(8,10)}`, y: (parseInt(data[i].wakeTime.substring(0,2))) + (parseInt(data[i].wakeTime.substring(3,5))/60) })
       }
       return wakeData;
     }
   const getBedData = (data) => {
     let bedData = []
     for(let i=0; i < data.length; i++){
-        bedData.push({ x: data[i].date, y: (parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60) })
+        bedData.push({ x: `${data[i].date.substring(5,7)}/${data[i].date.substring(8,10)}`, y: (parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60) })
       }
       return bedData;
     }
@@ -74,7 +74,8 @@ function SleepHome(props){
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
           <button onClick={props.onClickAdd}>Add sleep log</button>
-          <HomeHeader>This week's sleep data:</HomeHeader>
+          <HomeHeader>This week's sleep data :</HomeHeader>
+          <HomeHeader>{`${sleepData[0].date.substring(5,7)}/${sleepData[0].date.substring(8,10)}`} - {`${sleepData[sleepData.length -1].date.substring(5,7)}/${sleepData[sleepData.length-1].date.substring(8,10)}`}</HomeHeader>
           <p className="center">{message}</p>
           <GraphTitle>Hours of Sleep</GraphTitle>
           <div>
@@ -100,7 +101,7 @@ function SleepHome(props){
             <XYPlot
               xType="ordinal"
               yType="linear"
-              yDomain={[0,23]}
+              yDomain={[0,24]}
               width={500}
               height={300}
               className="bar-chart">
@@ -130,7 +131,7 @@ function SleepHome(props){
             <XYPlot
               xType="ordinal"
               yType="linear"
-              yDomain={[0,23]}
+              yDomain={[0,24]}
               // yRange={[12,13,14,15,16,17,18,19,20,21,22,23,24,1,2,3,4,5,6,7,8,9,10,11]}
               // yDomain={[12,13,14,15,16,17,18,19,20,21,22,23,24,1,2,3,4,5,6,7,8,9,10,11]}
               width={500}
