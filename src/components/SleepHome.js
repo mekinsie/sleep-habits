@@ -53,20 +53,29 @@ function SleepHome(props){
     return graphData;
   }
 
+  const getMoodData = (data) => {
+    let moodData = []
+    for(let i=0; i < data.length; i++){
+        moodData.push({ x: `${data[i].date.substring(5,7)}/${data[i].date.substring(8,10)}`, y: data[i].mood })
+      }
+    return moodData;
+  }
+
   const getWakeData = (data) => {
     let wakeData = []
     for(let i=0; i < data.length; i++){
         wakeData.push({ x: `${data[i].date.substring(5,7)}/${data[i].date.substring(8,10)}`, y: (parseInt(data[i].wakeTime.substring(0,2))) + (parseInt(data[i].wakeTime.substring(3,5))/60) })
       }
-      return wakeData;
-    }
+    return wakeData;
+  }
+
   const getBedData = (data) => {
     let bedData = []
     for(let i=0; i < data.length; i++){
         bedData.push({ x: `${data[i].date.substring(5,7)}/${data[i].date.substring(8,10)}`, y: (parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60) })
       }
-      return bedData;
-    }
+    return bedData;
+  }
 
   if (isLoaded(sleepData)){
     console.log(sleepData)
@@ -77,6 +86,7 @@ function SleepHome(props){
     const graphData = getGraphData(sleepData)
     const wakeData = getWakeData(sleepData)
     const bedData = getBedData(sleepData)
+    const moodData = getMoodData(sleepData)
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
@@ -142,8 +152,9 @@ function SleepHome(props){
             <XYPlot
               xType="ordinal"
               yType="linear"
-              yDomain={[0,24]}
-              // yRange={[12,13,14,15,16,17,18,19,20,21,22,23,24,1,2,3,4,5,6,7,8,9,10,11]}
+              // yRange={[1]}
+              // yDomain={[12,13,14,15,16,17,18,19,20,21,22,23,0,1,2,3,4,5,6,7,8,9,10,11]}
+              // yDomain={[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}
               // yDomain={[12,13,14,15,16,17,18,19,20,21,22,23,24,1,2,3,4,5,6,7,8,9,10,11]}
               width={500}
               height={300}
@@ -172,6 +183,25 @@ function SleepHome(props){
                 fill: 'white',
                 text: {stroke: 'none', fill: 'white', fontWeight: 500}}}
               />
+            </XYPlot>
+          </div>
+          <GraphTitle>Mood Levels</GraphTitle>
+          <div>
+            <XYPlot
+              xType="ordinal"
+              width={500}
+              height={300}
+              className="bar-chart">
+              <HorizontalGridLines />
+              <VerticalBarSeries
+                color="#b6a4e0"
+                data={ moodData }/>
+              <XAxis title="Date" style={{
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+              <YAxis title="Mood Level" style={{
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
             </XYPlot>
           </div>
         </FadeIn>
