@@ -60,6 +60,13 @@ function SleepHome(props){
       }
     return moodData;
   }
+  const getEnergyData = (data) => {
+    let energyData = []
+    for(let i=0; i < data.length; i++){
+        energyData.push({ x: `${data[i].date.substring(5,7)}/${data[i].date.substring(8,10)}`, y: data[i].energyLevel })
+      }
+    return energyData;
+  }
 
   const getWakeData = (data) => {
     let wakeData = []
@@ -87,6 +94,7 @@ function SleepHome(props){
     const wakeData = getWakeData(sleepData)
     const bedData = getBedData(sleepData)
     const moodData = getMoodData(sleepData)
+    const energyData = getEnergyData(sleepData)
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
@@ -113,6 +121,44 @@ function SleepHome(props){
                 fill: 'white',
                 text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
               <YAxis title="Total Hours of Sleep" style={{
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+            </XYPlot>
+          </div>
+          <GraphTitle>Mood Levels</GraphTitle>
+          <div>
+            <XYPlot
+              xType="ordinal"
+              width={500}
+              height={300}
+              className="bar-chart">
+              <HorizontalGridLines />
+              <VerticalBarSeries
+                color="#b6a4e0"
+                data={ moodData }/>
+              <XAxis title="Date" style={{
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+              <YAxis title="Mood Level" style={{
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+            </XYPlot>
+          </div>
+          <GraphTitle>Energy Levels</GraphTitle>
+          <div>
+            <XYPlot
+              xType="ordinal"
+              width={500}
+              height={300}
+              className="bar-chart">
+              <HorizontalGridLines />
+              <VerticalBarSeries
+                color="#b6a4e0"
+                data={ energyData }/>
+              <XAxis title="Date" style={{
+                fill: 'white',
+                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+              <YAxis title="Energy Level" style={{
                 fill: 'white',
                 text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
             </XYPlot>
@@ -183,25 +229,6 @@ function SleepHome(props){
                 fill: 'white',
                 text: {stroke: 'none', fill: 'white', fontWeight: 500}}}
               />
-            </XYPlot>
-          </div>
-          <GraphTitle>Mood Levels</GraphTitle>
-          <div>
-            <XYPlot
-              xType="ordinal"
-              width={500}
-              height={300}
-              className="bar-chart">
-              <HorizontalGridLines />
-              <VerticalBarSeries
-                color="#b6a4e0"
-                data={ moodData }/>
-              <XAxis title="Date" style={{
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
-              <YAxis title="Mood Level" style={{
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
             </XYPlot>
           </div>
         </FadeIn>
