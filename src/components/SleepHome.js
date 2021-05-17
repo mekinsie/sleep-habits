@@ -3,7 +3,6 @@ import FadeIn from 'react-fade-in';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
-import SleepDay from './SleepDay'
 import styled from 'styled-components';
 import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalBarSeries} from 'react-vis';
 

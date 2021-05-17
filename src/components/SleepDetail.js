@@ -27,10 +27,4 @@ SleepDetail.propTypes={
   onClickingDelete: PropTypes.func
 }
 
-const mapStateToProps = state =>{
-  return {
-    selectedSleep: state.selectedSleep
-  }
-}
-
 export default SleepDetail;

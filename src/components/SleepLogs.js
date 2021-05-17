@@ -67,6 +67,7 @@ function SleepLogs(props){
 
 SleepLogs.propTypes = {
   onSleepSelection: PropTypes.func,
+  lastWeek: PropTypes.func,
   onClickAdd: PropTypes.func,
   userEmail: PropTypes.string
 };
