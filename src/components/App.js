@@ -6,7 +6,6 @@ import Signup from './Signup';
 import Stars from './Stars';
 import DeleteAccount from './DeleteAccount';
 
-
 function App() {
   return (
     <Router>

@@ -52,6 +52,7 @@ function Nav(props){
           {/* <Link to="/">Home</Link> */}
           <p onClick={props.onClickHome}>Home</p>
           <p href="#">Profile</p>
+          <p href="#">Sleep Logs</p>
           <p onClick={props.onClickSettings}>Settings</p>
           <p onClick={doLogOut}>Log Out</p>
         </div>

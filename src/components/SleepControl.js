@@ -1,14 +1,15 @@
 import React from "react";
-import SleepHome from './SleepHome';
-// import { connect } from 'react-redux';
+import firebase from "firebase/app";
 import { withFirestore, isLoaded } from 'react-redux-firebase'
+import { Link } from "react-router-dom";
+import UserSettings from "./UserSettings";
+// import { connect } from 'react-redux';
+import SleepHome from './SleepHome';
+import SleepLogs from './SleepLogs';
 import NewSleepForm from "./NewSleepForm";
 import SleepDetail from "./SleepDetail";
 import EditSleepForm from "./EditSleepForm";
-import { Link } from "react-router-dom";
 import Nav from "./Nav";
-import UserSettings from "./UserSettings";
-import firebase from "firebase/app";
 
 
 class SleepControl extends React.Component {
@@ -31,7 +32,8 @@ class SleepControl extends React.Component {
       editing: false,
       selectedSleep: null,
       user: null,
-      settingsVisible: false
+      settingsVisible: false,
+      logsVisible: false
     })
   }
 
@@ -63,7 +65,8 @@ class SleepControl extends React.Component {
         formVisible: false,
         selectedSleep: null,
         editing: false,
-        settingsVisible: false
+        settingsVisible: false,
+        logsVisible: false
       });
     } else {
       this.setState(prevState => ({
@@ -77,7 +80,8 @@ class SleepControl extends React.Component {
       formVisible: false,
       selectedSleep: null,
       editing: false,
-      settingsVisible: false
+      settingsVisible: false,
+      logsVisible: false
     });
   }
 
@@ -86,7 +90,8 @@ class SleepControl extends React.Component {
       formVisible: false,
       selectedSleep: null,
       editing: false,
-      settingsVisible: true
+      settingsVisible: true,
+      logsVisible: false
     });
   }
 
@@ -123,6 +128,8 @@ class SleepControl extends React.Component {
         currentView = <SleepDetail sleep={this.state.selectedSleep} onClickingEdit={this.handleEditClick} onClickingDelete={this.handleDeletingSleep} />
       } else if (this.state.formVisible){
         currentView = <NewSleepForm onNewSleepCreation={this.handleAddSleep} />
+      } else if (this.state.logsVisible){
+        currentView = <SleepLogs userEmail={auth.currentUser.email} onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep} />
       } else {
         currentView = <SleepHome userEmail={auth.currentUser.email} onClickAdd={this.handleClick} onSleepSelection={this.handleSelectSleep} />
       }
