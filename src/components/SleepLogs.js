@@ -6,6 +6,7 @@ import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import SleepDay from './SleepDay'
 import styled from 'styled-components';
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 const HomeHeader = styled.h1`
   text-align: center;
@@ -16,11 +17,11 @@ const HomeHeader = styled.h1`
   `;
 
 function SleepLogs(props){
-  // const [value, setValue] = useState(new Date());
+  const [value, setValue] = useState(new Date());
 
-  // const onChange = (nextValue) => {
-  //   setValue(nextValue)
-  // }
+  const onChange = (nextValue) => {
+    setValue(nextValue)
+  }
 
   useFirestoreConnect(() => {
     let date;
@@ -43,8 +44,8 @@ function SleepLogs(props){
 
         <div className="calendar">
           <Calendar
-            // onChange={onChange}
-            // value={value}
+            onChange={onChange}
+            value={value}
           />
         </div>
 
