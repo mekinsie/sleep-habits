@@ -25,6 +25,15 @@ const HomeHeader = styled.h1`
   margin-bottom: 50px;
   `;
 
+  const Notes = styled.p`
+  width: 430px;
+  font-size: 13px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  opacity: 0.5;
+  `;
+
 function SleepHome(props){
 
   useFirestoreConnect(() => {
@@ -125,6 +134,7 @@ function SleepHome(props){
                 text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
             </XYPlot>
           </div>
+          <Notes>The National Sleep Foundation guidelines advise that healthy adults need between 7 and 9 hours of sleep per night.</Notes>
           <GraphTitle>Mood Levels</GraphTitle>
           <div>
             <XYPlot
