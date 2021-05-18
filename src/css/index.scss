@@ -171,10 +171,11 @@ a{
 .calendar {
   width: 350px;
   margin: 0 auto;
-  border: 3px rgb(63, 72, 123) solid;
+  // border: 3px rgb(63, 72, 123) solid;
 }
 .react-calendar__navigation button {
   font-size: 1em;
+  color: white;
 }
 
 .react-calendar__navigation__label {
@@ -213,14 +214,25 @@ button.react-calendar__tile--hover {
 
 button.react-calendar__tile--active:enabled:hover{
   background: rgb(29, 24, 59);
+  &:hover{
+    background: rgb(35, 24, 91);
+  }
 }
 
 button.react-calendar__tile--active:enabled:focus {
   background: rgb(29, 24, 59);
+  &:hover{
+    background: rgb(35, 24, 91);
+    color: white;
+  }
 }
 
 button.react-calendar__tile--now {
   background: rgb(63, 55, 104);
   color: white;
+  &:enabled:hover {
+    background: rgb(228, 228, 228);
+    color: rgb(29, 24, 59);
+  }
 }
 
