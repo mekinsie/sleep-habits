@@ -41,7 +41,7 @@ function NewSleepForm(props){
             <ReusableForm
             userEmail = {auth.currentUser.email}
             formSubmissionHandler={addSleepToFirestore}
-            buttonText="Save Sleep" />
+            buttonText="Save Sleep Log" />
           </div>
         </FadeIn>
       </React.Fragment>
