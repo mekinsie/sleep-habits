@@ -171,9 +171,7 @@ a{
 .calendar {
   width: 350px;
   margin: 0 auto;
-  // padding: 10px;
   border: 3px rgb(63, 72, 123) solid;
-  background-color: rgb(203, 211, 236);
 }
 .react-calendar__navigation button {
   font-size: 1em;
@@ -184,29 +182,45 @@ a{
   color: white;
 }
 .react-calendar__month-view__weekdays {
-  color: rgb(191, 192, 199);
+  color: white;
 }
 
 div.react-calendar {
-  background: rgb(29, 24, 59);
-  color: white;
+  background: rgb(72, 62, 130);
   border: none;
 }
 
-.react-calendar__month-view {
-  & button{
-    padding: 15px;
-    background: rgb(29, 24, 59);
-    border: none;
-    color: white;
-    &:hover {
-      background-color: rgb(27, 27, 43);
-      color: white;
-    }
-    &:focus {
-      background-color: rgb(62, 62, 134);
-      color: white;
-    }
-  }
+button.react-calendar__month-view__days__day {
+  color: white;
+}
+
+button.react-calendar__month-view__days__day--weekend {
+  color: #90a8f7;
+}
+button.react-calendar__month-view__days__day--neighboringMonth {
+  color: #a5a6a9;
+}
+
+button.react-calendar__tile--active {
+  background: rgb(29, 24, 59);
+  color: white;
+}
+
+button.react-calendar__tile--hover {
+  background: rgb(29, 24, 59);
+  color: white;
+}
+
+button.react-calendar__tile--active:enabled:hover{
+  background: rgb(29, 24, 59);
+}
+
+button.react-calendar__tile--active:enabled:focus {
+  background: rgb(29, 24, 59);
+}
+
+button.react-calendar__tile--now {
+  background: rgb(63, 55, 104);
+  color: white;
 }
 
