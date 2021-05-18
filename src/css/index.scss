@@ -171,7 +171,9 @@ a{
 .calendar {
   width: 350px;
   margin: 0 auto;
-  // border: 3px rgb(63, 72, 123) solid;
+  & button{
+    border-radius: 10px;
+  }
 }
 .react-calendar__navigation button {
   font-size: 1em;
@@ -182,6 +184,7 @@ a{
   font-size: 1em;
   color: white;
 }
+
 .react-calendar__month-view__weekdays {
   color: white;
 }
@@ -189,15 +192,21 @@ a{
 div.react-calendar {
   background: rgb(72, 62, 130);
   border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 button.react-calendar__month-view__days__day {
   color: white;
+  &:hover{
+    color: rgb(35, 24, 91);
+  }
 }
 
 button.react-calendar__month-view__days__day--weekend {
   color: #90a8f7;
 }
+
 button.react-calendar__month-view__days__day--neighboringMonth {
   color: #a5a6a9;
 }
