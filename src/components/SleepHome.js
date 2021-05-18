@@ -119,7 +119,7 @@ function SleepHome(props){
             <h1 className="center">Welcome!</h1>
             <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday. The graphs below can help you to visualize which days need better sleep habits.</p>
           </Welcome>
-          <button onClick={props.onClickAdd}>Add sleep log</button>
+          <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
           <HomeHeader>This week's sleep data :</HomeHeader>
           <HomeHeader>{week}</HomeHeader>
           <p className="center">{message}</p>

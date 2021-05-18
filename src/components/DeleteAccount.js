@@ -30,8 +30,8 @@ function DeleteAccount(props) {
       <React.Fragment>
         <FadeIn transitionDuration="1000">
           <h1 className="center">Are you sure you want to delete your account?</h1>
-          <button onClick={deleteAccount} href="#">Delete Account</button>
-          <a href="/"><button>No, take me back</button></a>
+          <button className="button" onClick={deleteAccount} href="#">Delete Account</button>
+          <a href="/"><button className="button">No, take me back</button></a>
         </FadeIn>
       </React.Fragment>
     )

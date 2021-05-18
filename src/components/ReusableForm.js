@@ -73,7 +73,7 @@ function ReusableForm(props) {
           </label>
         </div>
         <div>
-          <button type='submit'>{props.buttonText}</button>
+          <button className="button" type='submit'>{props.buttonText}</button>
         </div>
       </form>
     </React.Fragment>

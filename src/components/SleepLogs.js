@@ -16,11 +16,11 @@ const HomeHeader = styled.h1`
   `;
 
 function SleepLogs(props){
-  const [value, setValue] = useState(new Date());
+  // const [value, setValue] = useState(new Date());
 
-  const onChange = (nextValue) => {
-    setValue(nextValue)
-  }
+  // const onChange = (nextValue) => {
+  //   setValue(nextValue)
+  // }
 
   useFirestoreConnect(() => {
     let date;
@@ -43,12 +43,12 @@ function SleepLogs(props){
 
         <div className="calendar">
           <Calendar
-            onChange={onChange}
-            value={value}
+            // onChange={onChange}
+            // value={value}
           />
         </div>
 
-          <button onClick={props.onClickAdd}>Add sleep log</button>
+          <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
           {/* <div>
             <button>See month</button>
             <button>See year</button>

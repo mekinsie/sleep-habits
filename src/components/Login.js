@@ -41,7 +41,7 @@ function Login() {
         <form className="form" onSubmit={doLogIn}>
           <input type='text' name='email' placeholder='Email'/>
           <input type='password' name='password' placeholder='Password'/>
-          <button type='submit'>Log In</button>
+          <button className="button" type='submit'>Log In</button>
         </form>
         <p> OR </p>
         <div className="login-buttons">

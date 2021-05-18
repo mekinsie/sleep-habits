@@ -38,7 +38,7 @@ function Signup(){
           <form className="form" onSubmit={doSignUp}>
             <input type='text' name='email' placeholder='Email'/>
             <input type='password' name='password' placeholder='Password'/>
-            <button type='submit'>Sign up</button>
+            <button className="button" type='submit'>Sign up</button>
           </form>
 
           <p> OR </p>

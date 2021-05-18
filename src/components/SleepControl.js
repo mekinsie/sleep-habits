@@ -140,8 +140,8 @@ class SleepControl extends React.Component {
           <div className="welcome">
             <h1 className="center">Welcome to Sleep Habits</h1>
           </div>
-          <Link to="/login"><button>Log in</button></Link>
-          <Link to="/signup"><button>Create New Account</button></Link>
+          <Link to="/login"><button className="button">Log in</button></Link>
+          <Link to="/signup"><button className="button">Create New Account</button></Link>
         </React.Fragment>
       )
     }
