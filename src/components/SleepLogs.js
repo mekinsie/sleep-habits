@@ -10,6 +10,8 @@ const HomeHeader = styled.h1`
   text-align: center;
   color: white;
   margin-bottom: 20px;
+  font-family: 'Cormorant', serif;
+
   `;
 
 function SleepLogs(props){

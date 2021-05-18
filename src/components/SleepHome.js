@@ -11,18 +11,23 @@ const HomeHeader = styled.h1`
   color: white;
   margin-bottom: 20px;
   margin-top: 30px;
-  `;
+  font-family: 'Cormorant', serif;
 
+  `;
+  
   const GraphTitle = styled.h2`
   text-align: center;
   margin-top: 50px;
+  // font-family: Boska-Medium;
+  font-family: 'Cormorant', serif;
   `;
-
+  
   const Welcome = styled.div`
   width: 600px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
+  font-family: 'Cormorant', serif;
   `;
 
   const Notes = styled.p`
