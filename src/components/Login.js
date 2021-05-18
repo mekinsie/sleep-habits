@@ -41,11 +41,11 @@ function Login() {
         <form className="form" onSubmit={doLogIn}>
           <input type='text' name='email' placeholder='Email'/>
           <input type='password' name='password' placeholder='Password'/>
-          <button type='submit'>Log In</button>
+          <button className="button" type='submit'>Log In</button>
         </form>
         <p> OR </p>
         <div className="login-buttons">
-        <button className="login-provider-button" onClick={signInWithGoogle}>
+        <button className="login-provider-button button" onClick={signInWithGoogle}>
         <img src="https://img.icons8.com/ios-filled/50/000000/google-logo.png" alt="google icon"/>
         <span> Continue with Google</span>
         </button>

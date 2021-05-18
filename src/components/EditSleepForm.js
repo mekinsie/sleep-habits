@@ -94,7 +94,7 @@ function EditSleepForm(props) {
             </label>
           </div>
           <div>
-            <button type='submit'>Update Sleep Log</button>
+            <button className="button" type='submit'>Update Sleep Log</button>
           </div>
         </form>
         </FadeIn>

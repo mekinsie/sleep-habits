@@ -25,7 +25,7 @@ function UserSettings(){
         <h2 className="center">Update Password:</h2>
         <form className="form" onSubmit={doChangePass}>
           <input type='password' name='password' placeholder='New Password'/>
-          <button type='submit'>Update Password</button>
+          <button className="button" type='submit'>Update Password</button>
         </form>
         <Link className="link" to="/deleteAccount">Delete my account</Link>
         <p>{message}</p>
