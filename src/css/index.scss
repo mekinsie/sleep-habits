@@ -191,6 +191,17 @@ a{
 .react-calendar__navigation button {
   font-size: 1em;
 }
-.react-calendar__month-view__weekdays {
-  color: gray;
+
+.react-calendar__navigation__label {
+  font-size: 1em;
+  color: white;
 }
+.react-calendar__month-view__weekdays {
+  color: rgb(191, 192, 199);
+}
+
+div.react-calendar {
+  background: rgb(29, 24, 59);
+  color: white;
+}
+
