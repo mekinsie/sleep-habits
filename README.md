@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Sleep Habits
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## By Mekinsie Callahan
 
-## Available Scripts
+* * *
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+Sleep habits is a tracking app that allows you to focus on improving your sleep hygiene (develop healthy sleep habits). Users can log in to add sleep logs and see their data visualized in a variety of graphs.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* * *
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Technologies used
 
-### `npm test`
+* React
+* npm
+* babel
+* JSX
+* CSS
+* Redux
+* Firebase
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- * * * -->
+<!-- ## Component Diagram
+<img src="./src/img/component-diagram.png" alt="component diagram" width="650"> -->
 
-### `npm run build`
+* * *
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Software Requirements
+* **npm is required to run this application** 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ <a href="https://www.npmjs.com/get-npm">Install npm here</a>  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* * *
 
-### `npm run eject`
+## Installation Instructions
+1. Navigate to the desired directory where you would like to clone the project.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. Once you have chosen your desired directory, clone the github repo using the version control tool `git` (<a href="https://www.learnhowtoprogram.com/introduction-to-programming/getting-started-with-intro-to-programming/git-and-github">download instructions</a>). Type the following command into your terminal:
+```bash
+$ git clone https://github.com/mekinsie/sleep-habits
+```
+3. Open the project in VSCode by typing the following in your terminal:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+``` bash
+$ code .
+```
+_**Note:** VSCode is a code editing software. If you don't already have it, you can download it <a href="https://code.visualstudio.com/">here</a>_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4. To start a local server, type the following into your terminal:
+```
+$ npm start
+```
+5. Open your default browser and type "localhost:3000" into the search bar and press enter. Here, you will see the live server.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* * *
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> [GPLv3](https://choosealicense.com/licenses/gpl-3.0/)\
+> Mekinsie Callahan &copy; 2021  
+* * *
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contact Information
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Reach me via <a href="https://www.linkedin.com/in/mekinsie/" target="_blank">LinkedIn</a> or <a href="mailto:mekinsie.aja@gmail.com" target="_blank">email</a></li>.  

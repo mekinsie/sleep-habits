@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+@import "~react-vis/dist/style";
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+color: white;
+background-image: linear-gradient( rgb(22, 17, 56),rgb(66, 52, 146));
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+background-attachment: fixed;
+// font-family: 'Inconsolata', monospace;
+font-family:Arial, Helvetica, sans-serif;
+font-size: medium;
+margin-top: 100px;
+}
+
+.center {
+  text-align: center;
+}
+
+.form {
+  background-color: rgb(180, 161, 197);
+  color: white;
+  width: 30%;
+  margin:auto;
+  padding: 50px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.sleep-data {
+  background-color: rgb(29, 24, 59);
+  color: white;
+  width: 300px;
+  margin:auto;
+  padding: 50px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+
+#h3-link:hover{
+  cursor: pointer;
+  color: rgb(72, 72, 129);
+}
+
+button {
+  background-color: white;
+  color: rgb(75, 75, 88);
+  display: block;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  &:hover{
+    background-color: rgb(128, 98, 161);
+    color: white;
+  }
+}
+
+.navbar {
+  width: 100%;
+  background-color: rgb(29, 24, 59);
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  // opacity: 0.9;
+  & p {
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: center; /* If you want the text to be centered */
+    &:hover{
+      background-color: rgb(20, 16, 39);
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.bar-chart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  stroke: none;
+  fill: white;
+}
+
+.card {
+  margin-top: 50px;
+}
+
+.welcome {
+  margin-top: 300px;
+
+}
+a{
+  color: white;
+}
+
+.login-buttons {
+  & button {
+    background-color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    color: rgb(95, 95, 95);
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+	  flex-direction: row;
+    align-items: center;
+    &:hover {
+      transform: scale(1.05);
+      background-color: rgb(189, 176, 201);
+      color:white;
+    }
+  }
+  & img {
+    width: 1.6em;
+    height: 1.6em;
+    margin-right: 0.5em;
+  }
+}
+
+.link {
+  text-align: center;
+  display: block;
+}
