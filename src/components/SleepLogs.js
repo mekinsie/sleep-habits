@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FadeIn from 'react-fade-in';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import SleepDay from './SleepDay'
 import styled from 'styled-components';
+import Calendar from 'react-calendar';
 
 const HomeHeader = styled.h1`
   text-align: center;
@@ -15,6 +16,11 @@ const HomeHeader = styled.h1`
   `;
 
 function SleepLogs(props){
+  const [value, setValue] = useState(new Date());
+
+  const onChange = (nextValue) => {
+    setValue(nextValue)
+  }
 
   useFirestoreConnect(() => {
     let date;
@@ -34,6 +40,14 @@ function SleepLogs(props){
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
+
+        <div className="calendar">
+          <Calendar
+            onChange={onChange}
+            value={value}
+          />
+        </div>
+
           <button onClick={props.onClickAdd}>Add sleep log</button>
           {/* <div>
             <button>See month</button>
