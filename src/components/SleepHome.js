@@ -14,14 +14,14 @@ const HomeHeader = styled.h1`
   font-family: 'Cormorant', serif;
 
   `;
-  
+
   const GraphTitle = styled.h2`
   text-align: center;
   margin-top: 50px;
   // font-family: Boska-Medium;
   font-family: 'Cormorant', serif;
   `;
-  
+
   const Welcome = styled.div`
   width: 600px;
   margin-left: auto;
@@ -101,8 +101,11 @@ function SleepHome(props){
   if (isLoaded(sleepData)){
     console.log(sleepData)
     let message;
+    let week;
     if (sleepData.length == 0){
       message = 'Add a sleep log to start seeing data! Each log will need a wake time and a bed time to show up on the graph.'
+    } else {
+      week = `${sleepData[0].date.substring(5,7)}/${sleepData[0].date.substring(8,10)} - ${sleepData[sleepData.length -1].date.substring(5,7)}/${sleepData[sleepData.length-1].date.substring(8,10)}`
     }
     const graphData = getGraphData(sleepData)
     const wakeData = getWakeData(sleepData)
@@ -118,7 +121,7 @@ function SleepHome(props){
           </Welcome>
           <button onClick={props.onClickAdd}>Add sleep log</button>
           <HomeHeader>This week's sleep data :</HomeHeader>
-          <HomeHeader>{`${sleepData[0].date.substring(5,7)}/${sleepData[0].date.substring(8,10)}`} - {`${sleepData[sleepData.length -1].date.substring(5,7)}/${sleepData[sleepData.length-1].date.substring(8,10)}`}</HomeHeader>
+          <HomeHeader>{week}</HomeHeader>
           <p className="center">{message}</p>
           <GraphTitle>Hours of Sleep</GraphTitle>
           <div>
