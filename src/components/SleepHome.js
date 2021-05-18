@@ -14,14 +14,14 @@ const HomeHeader = styled.h1`
   font-family: 'Cormorant', serif;
 
   `;
-  
+
   const GraphTitle = styled.h2`
   text-align: center;
   margin-top: 50px;
   // font-family: Boska-Medium;
   font-family: 'Cormorant', serif;
   `;
-  
+
   const Welcome = styled.div`
   width: 600px;
   margin-left: auto;
