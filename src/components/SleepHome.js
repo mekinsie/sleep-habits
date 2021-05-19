@@ -102,157 +102,167 @@ function SleepHome(props){
     console.log(sleepData)
     let message;
     let week;
-    if (sleepData.length == 0){
-      message = 'Add a sleep log to start seeing data! Each log will need a wake time and a bed time to show up on the graph.'
-    } else {
-      week = `${sleepData[0].date.substring(5,7)}/${sleepData[0].date.substring(8,10)} - ${sleepData[sleepData.length -1].date.substring(5,7)}/${sleepData[sleepData.length-1].date.substring(8,10)}`
-    }
     const graphData = getGraphData(sleepData)
     const wakeData = getWakeData(sleepData)
     const bedData = getBedData(sleepData)
     const moodData = getMoodData(sleepData)
     const energyData = getEnergyData(sleepData)
-    return(
-      <React.Fragment>
-        <FadeIn transitionDuration='1000'>
-          <Welcome>
-            <h1 className="center">Welcome!</h1>
-            <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday. The graphs below can help you to visualize which days need better sleep habits.</p>
-          </Welcome>
-          <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
-          <HomeHeader>This week's sleep data :</HomeHeader>
-          <HomeHeader>{week}</HomeHeader>
-          <p className="center">{message}</p>
-          <GraphTitle>Hours of Sleep</GraphTitle>
-          <div>
-            <XYPlot
-              xType="ordinal"
-              width={500}
-              height={300}
-              className="bar-chart">
-              <HorizontalGridLines />
-              <VerticalBarSeries
-                color="#b6a4e0"
-                data={ graphData }/>
-              <XAxis title="Date" style={{
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
-              <YAxis title="Total Hours of Sleep" style={{
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
-            </XYPlot>
-          </div>
-          <Notes>The National Sleep Foundation guidelines advise that healthy adults need between 7 and 9 hours of sleep per night.</Notes>
-          <GraphTitle>Mood Levels</GraphTitle>
-          <div>
-            <XYPlot
-              xType="ordinal"
-              width={500}
-              height={300}
-              className="bar-chart">
-              <HorizontalGridLines />
-              <VerticalBarSeries
-                color="#b6a4e0"
-                data={ moodData }/>
-              <XAxis title="Date" style={{
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
-              <YAxis title="Mood Level" style={{
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
-            </XYPlot>
-          </div>
-          <GraphTitle>Energy Levels</GraphTitle>
-          <div>
-            <XYPlot
-              xType="ordinal"
-              width={500}
-              height={300}
-              className="bar-chart">
-              <HorizontalGridLines />
-              <VerticalBarSeries
-                color="#b6a4e0"
-                data={ energyData }/>
-              <XAxis title="Date" style={{
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
-              <YAxis title="Energy Level" style={{
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
-            </XYPlot>
-          </div>
-          <GraphTitle>Wake Times</GraphTitle>
-          <div>
-            <XYPlot
-              xType="ordinal"
-              yType="linear"
-              yDomain={[0,24]}
-              width={500}
-              height={300}
-              className="bar-chart">
-              <HorizontalGridLines
-              tickTotal = {24}
-              width={6}
-              style={{
-                stroke: 'white',
-                opacity: '0.2'
-                }}
-                />
-              <LineSeries
-                color="#b6a4e0"
-                data={ wakeData }/>
-              <XAxis title="Date" style={{
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}
-                />
-              <YAxis title="Wake Times (24 hour clock)" style={{
-                fill: 'white',
-                line: {stroke: 'white'},
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
-            </XYPlot>
-          </div>
-          <GraphTitle>Bed Times</GraphTitle>
-          <div>
-            <XYPlot
-              xType="ordinal"
-              yType="linear"
-              yDomain={[0,24]}
-              // yRange={[1]}
-              // yDomain={[12,13,14,15,16,17,18,19,20,21,22,23,0,1,2,3,4,5,6,7,8,9,10,11]}
-              // yDomain={[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}
-              // yDomain={[12,13,14,15,16,17,18,19,20,21,22,23,24,1,2,3,4,5,6,7,8,9,10,11]}
-              width={500}
-              height={300}
-              className="bar-chart">
-              <HorizontalGridLines
-              tickTotal = {24}
-              width= {6}
-              style={{
-                stroke: 'white',
-                opacity: '0.2'
-                }}
-              />
-              <LineSeries
-                color="#b6a4e0"
-                data={ bedData }/>
-              <XAxis
-              title="Date"
-              style={{
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
-              <YAxis
-                title="Bed Times (24 hour clock)"
+    if (sleepData.length == 0){
+      message = 'Add a sleep log for this week to start seeing data! Each log will need a wake time and a bed time to show up on the graph.'
+      return(
+        <React.Fragment>
+          <FadeIn transitionDuration='1000'>
+            <Welcome>
+              <h1 className="center">Welcome!</h1>
+              <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday. The graphs below can help you to visualize which days need better sleep habits.</p>
+            </Welcome>
+            <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
+            <HomeHeader>This week's sleep data :</HomeHeader>
+            <HomeHeader>{week}</HomeHeader>
+            <p className="center">{message}</p>
+          </FadeIn>
+        </React.Fragment>
+      )
+    } else {
+      week = `${sleepData[0].date.substring(5,7)}/${sleepData[0].date.substring(8,10)} - ${sleepData[sleepData.length -1].date.substring(5,7)}/${sleepData[sleepData.length-1].date.substring(8,10)}`
+      return(
+        <React.Fragment>
+          <FadeIn transitionDuration='1000'>
+            <Welcome>
+              <h1 className="center">Welcome!</h1>
+              <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday. The graphs below can help you to visualize which days need better sleep habits.</p>
+            </Welcome>
+            <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
+            <HomeHeader>This week's sleep data :</HomeHeader>
+            <HomeHeader>{week}</HomeHeader>
+            <p className="center">{message}</p>
+            <GraphTitle>Hours of Sleep</GraphTitle>
+            <div>
+              <XYPlot
+                xType="ordinal"
+                width={500}
+                height={300}
+                className="bar-chart">
+                <HorizontalGridLines />
+                <VerticalBarSeries
+                  color="#b6a4e0"
+                  data={ graphData }/>
+                <XAxis title="Date" style={{
+                  fill: 'white',
+                  text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+                <YAxis title="Total Hours of Sleep" style={{
+                  fill: 'white',
+                  text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+              </XYPlot>
+            </div>
+            <Notes>The National Sleep Foundation guidelines advise that healthy adults need between 7 and 9 hours of sleep per night.</Notes>
+            <GraphTitle>Mood Levels</GraphTitle>
+            <div>
+              <XYPlot
+                xType="ordinal"
+                width={500}
+                height={300}
+                className="bar-chart">
+                <HorizontalGridLines />
+                <VerticalBarSeries
+                  color="#b6a4e0"
+                  data={ moodData }/>
+                <XAxis title="Date" style={{
+                  fill: 'white',
+                  text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+                <YAxis title="Mood Level" style={{
+                  fill: 'white',
+                  text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+              </XYPlot>
+            </div>
+            <GraphTitle>Energy Levels</GraphTitle>
+            <div>
+              <XYPlot
+                xType="ordinal"
+                width={500}
+                height={300}
+                className="bar-chart">
+                <HorizontalGridLines />
+                <VerticalBarSeries
+                  color="#b6a4e0"
+                  data={ energyData }/>
+                <XAxis title="Date" style={{
+                  fill: 'white',
+                  text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+                <YAxis title="Energy Level" style={{
+                  fill: 'white',
+                  text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+              </XYPlot>
+            </div>
+            <GraphTitle>Wake Times</GraphTitle>
+            <div>
+              <XYPlot
+                xType="ordinal"
+                yType="linear"
+                yDomain={[0,24]}
+                width={500}
+                height={300}
+                className="bar-chart">
+                <HorizontalGridLines
+                tickTotal = {24}
+                width={6}
                 style={{
-                // line: {stroke: 'black'},
-                // ticks: {stroke: 'black'},
-                fill: 'white',
-                text: {stroke: 'none', fill: 'white', fontWeight: 500}}}
-              />
-            </XYPlot>
-          </div>
-        </FadeIn>
-      </React.Fragment>
-    );
+                  stroke: 'white',
+                  opacity: '0.2'
+                  }}
+                  />
+                <LineSeries
+                  color="#b6a4e0"
+                  data={ wakeData }/>
+                <XAxis title="Date" style={{
+                  fill: 'white',
+                  text: {stroke: 'none', fill: 'white', fontWeight: 500}}}
+                  />
+                <YAxis title="Wake Times (24 hour clock)" style={{
+                  fill: 'white',
+                  line: {stroke: 'white'},
+                  text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+              </XYPlot>
+            </div>
+            <GraphTitle>Bed Times</GraphTitle>
+            <div>
+              <XYPlot
+                xType="ordinal"
+                yType="linear"
+                yDomain={[0,24]}
+                width={500}
+                height={300}
+                className="bar-chart">
+                <HorizontalGridLines
+                tickTotal = {24}
+                width= {6}
+                style={{
+                  stroke: 'white',
+                  opacity: '0.2'
+                  }}
+                />
+                <LineSeries
+                  color="#b6a4e0"
+                  data={ bedData }/>
+                <XAxis
+                title="Date"
+                style={{
+                  fill: 'white',
+                  text: {stroke: 'none', fill: 'white', fontWeight: 500}}}/>
+                <YAxis
+                  title="Bed Times (24 hour clock)"
+                  style={{
+                  // line: {stroke: 'black'},
+                  // ticks: {stroke: 'black'},
+                  fill: 'white',
+                  text: {stroke: 'none', fill: 'white', fontWeight: 500}}}
+                />
+              </XYPlot>
+            </div>
+          </FadeIn>
+        </React.Fragment>
+      );
+    }
   } else {
     return (
       <>
