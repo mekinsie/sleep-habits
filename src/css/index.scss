@@ -30,6 +30,7 @@ margin-top: 100px;
 
 .center {
   text-align: center;
+  margin: auto;
 }
 
 .form {
@@ -47,6 +48,9 @@ margin-top: 100px;
   border-radius: 10px;
   text-align: center;
   opacity: 0.9;
+  // & input {
+  //   width: 40%;
+  // }
 }
 
 .sleep-data {

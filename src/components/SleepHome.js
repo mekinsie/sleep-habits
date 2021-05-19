@@ -11,8 +11,9 @@ const HomeHeader = styled.h1`
   color: white;
   margin-bottom: 20px;
   margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
   font-family: 'Cormorant', serif;
-
   `;
 
   const GraphTitle = styled.h2`
@@ -23,7 +24,7 @@ const HomeHeader = styled.h1`
   `;
 
   const Welcome = styled.div`
-  width: 600px;
+  width: 500px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
