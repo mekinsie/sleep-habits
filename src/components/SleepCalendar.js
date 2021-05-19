@@ -17,7 +17,6 @@ const HomeHeader = styled.h1`
 
 function SleepCalendar(props){
   const [value, setValue] = useState(new Date());
-  // const [calendarVisible, toggleCalendar] = useState(true);
 
   const onChange = (nextValue) => {
     setValue(nextValue)
