@@ -33,11 +33,10 @@ const HomeHeader = styled.h1`
 
   const Notes = styled.p`
   width: 430px;
-  font-size: 13px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
-  opacity: 0.5;
+  opacity: 0.6;
   `;
 
 function SleepHome(props){

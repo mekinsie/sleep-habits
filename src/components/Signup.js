@@ -36,7 +36,7 @@ function Signup(){
           <h1>Sleep Habits</h1><br></br>
           <h2>Sign up</h2>
           <form className="form" onSubmit={doSignUp}>
-            <input type='text' name='email' placeholder='Email'/>
+            <input type='text' name='email' placeholder='Email'/><br></br>
             <input type='password' name='password' placeholder='Password'/>
             <button className="button" type='submit'>Sign up</button>
           </form>

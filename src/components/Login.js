@@ -39,7 +39,7 @@ function Login() {
         <h1>Sleep Habits</h1><br></br>
         <h2>Log in</h2>
         <form className="form" onSubmit={doLogIn}>
-          <input type='text' name='email' placeholder='Email'/>
+          <input type='text' name='email' placeholder='Email'/><br></br>
           <input type='password' name='password' placeholder='Password'/>
           <button className="button" type='submit'>Log In</button>
         </form>

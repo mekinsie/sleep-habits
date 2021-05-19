@@ -48,9 +48,21 @@ margin-top: 100px;
   border-radius: 10px;
   text-align: center;
   opacity: 0.9;
-  // & input {
-  //   width: 40%;
-  // }
+  & input {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .form {
+    width: 60%;
+    & input {
+      width: 50%;
+    }
+  }
+  body {
+    font-size:2.5rem;
+  }
 }
 
 .sleep-data {
@@ -116,11 +128,15 @@ margin-top: 100px;
 }
 
 @media screen and (max-width: 500px) {
-  .navbar a {
+  .navbar p{
     float: none;
     display: block;
     width: 100%;
     text-align: center;
+    font-size: 2.5rem;
+  }
+  body {
+    margin-top: 320px;
   }
 }
 
