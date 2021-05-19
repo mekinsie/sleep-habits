@@ -54,7 +54,6 @@ function SleepCalendar(props){
   if (isLoaded(sleepData)){
     console.log(sleepData)
     let displayDay;
-    let message;
     let calendarDate = reformatDate(value)
     let selectedDay = filteredDay(calendarDate, sleepData);
     if(selectedDay.length > 0){
@@ -72,12 +71,10 @@ function SleepCalendar(props){
       />;
     } else {
       displayDay = 'The selected day does not have a sleep log'
-      message = 'Add a sleep log to get started!'
     }
       return(
         <React.Fragment>
           <FadeIn transitionDuration='1000'>
-            {/* <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>List View</button> */}
             <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
             <div className="calendar">
               <Calendar
@@ -88,7 +85,6 @@ function SleepCalendar(props){
             {console.log(reformatDate(value))}
             <HomeHeader>Selected Day</HomeHeader>
             <div className="center">{displayDay}</div>
-            <p>{message}</p>
           </FadeIn>
         </React.Fragment>
       )
