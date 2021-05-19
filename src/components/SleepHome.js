@@ -9,6 +9,7 @@ import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalBarSeries, LineSeries
 const HomeHeader = styled.h1`
   text-align: center;
   color: white;
+  width: 500px;
   margin-bottom: 20px;
   margin-top: 30px;
   margin-left: auto;
@@ -19,6 +20,9 @@ const HomeHeader = styled.h1`
   const GraphTitle = styled.h2`
   text-align: center;
   margin-top: 50px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
   // font-family: Boska-Medium;
   font-family: 'Cormorant', serif;
   `;
@@ -116,7 +120,9 @@ function SleepHome(props){
               <h1 className="center">Welcome!</h1>
               <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday. The graphs below can help you to visualize which days need better sleep habits.</p>
             </Welcome>
-            <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
+            <div className="button-div">
+              <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
+            </div>
             <HomeHeader>This week's sleep data :</HomeHeader>
             <HomeHeader>{week}</HomeHeader>
             <p className="center">{message}</p>
@@ -132,7 +138,9 @@ function SleepHome(props){
               <h1 className="center">Welcome!</h1>
               <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday. The graphs below can help you to visualize which days need better sleep habits.</p>
             </Welcome>
-            <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
+            <div className="button-div">
+              <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
+            </div>
             <HomeHeader>This week's sleep data :</HomeHeader>
             <HomeHeader>{week}</HomeHeader>
             <p className="center">{message}</p>

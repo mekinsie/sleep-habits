@@ -30,7 +30,6 @@ margin-top: 100px;
 
 .center {
   text-align: center;
-  margin: auto;
 }
 
 .form {
@@ -88,18 +87,22 @@ margin-top: 100px;
   text-transform: uppercase;
   color: rgb(75, 75, 88);
   display: block;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 15px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 25px;
   margin-bottom: 25px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
   &:hover{
     background-color: rgb(128, 98, 161);
     color: white;
   }
+}
+
+.button-div {
+  width: 500px;
+  margin: auto;
 }
 
 .navbar {
@@ -134,9 +137,6 @@ margin-top: 100px;
     // width: 100%;
     // text-align: center;
     font-size: 2.5rem;
-  }
-  body {
-    margin-top: 320px;
   }
 }
 

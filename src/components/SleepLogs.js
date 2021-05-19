@@ -11,6 +11,9 @@ import SleepCalendar from './SleepCalendar';
 const HomeHeader = styled.h1`
   text-align: center;
   color: white;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 20px;
   font-family: 'Cormorant', serif;
   `;
@@ -49,24 +52,28 @@ function SleepLogs(props){
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
-          <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>Calendar View</button>
-          <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
+          <div className="button-div">
+            <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>Calendar View</button>
+            <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
+          </div>
           <HomeHeader>This week's sleep logs:</HomeHeader>
           <HomeHeader>{week}</HomeHeader>
           <p className="center">{message}</p>
-          {sleepData.map((day)=>{
-            return <SleepDay
-            whenSleepClicked = {props.onSleepSelection}
-            date = {day.date}
-            bedTime = {day.bedTime}
-            wakeTime = {day.wakeTime}
-            energyLevel = {day.energyLevel}
-            mood = {day.mood}
-            id = {day.id}
-            key={day.id}
-            sleep={day}
-            />
-          })}
+          <div className="button-div">
+            {sleepData.map((day)=>{
+              return <SleepDay
+              whenSleepClicked = {props.onSleepSelection}
+              date = {day.date}
+              bedTime = {day.bedTime}
+              wakeTime = {day.wakeTime}
+              energyLevel = {day.energyLevel}
+              mood = {day.mood}
+              id = {day.id}
+              key={day.id}
+              sleep={day}
+              />
+            })}
+          </div>
         {console.log(sleepData)}
         </FadeIn>
       </React.Fragment>
