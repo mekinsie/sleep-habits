@@ -79,19 +79,31 @@ function SleepLogs(props){
     if (sleepData.length == 0){
       message = 'Add a sleep log to get started!'
     }
+    
+
+    if (calendarVisible){
+      return(
+        <React.Fragment>
+          <FadeIn transitionDuration='1000'>
+            <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>List View</button>
+            <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
+            <div className="calendar">
+              <Calendar
+                onChange={onChange}
+                value={value}
+              />
+            </div>
+            {console.log(reformatDate(value))}
+            <HomeHeader>Selected Day</HomeHeader>
+            <div className="center">{displayDay}</div>
+          </FadeIn>
+        </React.Fragment>
+      )
+    }
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
           <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>List View</button>
-        <div className="calendar">
-          <Calendar
-            onChange={onChange}
-            value={value}
-          />
-        </div>
-          {console.log(reformatDate(value))}
-          <HomeHeader>Selected Day</HomeHeader>
-          <div className="center">{displayDay}</div>
           <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
           {/* <div>
             <button>See month</button>
