@@ -103,7 +103,7 @@ function SleepLogs(props){
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
-          <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>List View</button>
+          <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>Calendar View</button>
           <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
           {/* <div>
             <button>See month</button>
