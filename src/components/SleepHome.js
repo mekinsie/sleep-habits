@@ -171,6 +171,7 @@ function SleepHome(props){
                 xType="ordinal"
                 width={500}
                 height={300}
+                padding={10}
                 className="bar-chart">
                 <HorizontalGridLines />
                 <VerticalBarSeries
@@ -190,6 +191,7 @@ function SleepHome(props){
                 xType="ordinal"
                 width={500}
                 height={300}
+                padding={10}
                 className="bar-chart">
                 <HorizontalGridLines />
                 <VerticalBarSeries
@@ -211,6 +213,7 @@ function SleepHome(props){
                 yDomain={[0,24]}
                 width={500}
                 height={300}
+                padding={10}
                 className="bar-chart">
                 <HorizontalGridLines
                 tickTotal = {24}
@@ -234,13 +237,14 @@ function SleepHome(props){
               </XYPlot>
             </div>
             <GraphTitle>Bed Times</GraphTitle>
-            <div>
+            <div className="content-pad">
               <XYPlot
                 xType="ordinal"
                 yType="linear"
                 yDomain={[0,24]}
                 width={500}
                 height={300}
+                padding={10}
                 className="bar-chart">
                 <HorizontalGridLines
                 tickTotal = {24}
