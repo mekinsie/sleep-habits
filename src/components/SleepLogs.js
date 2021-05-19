@@ -17,12 +17,10 @@ const HomeHeader = styled.h1`
 
 function SleepLogs(props){
   const [value, setValue] = useState(new Date());
+  const [calendarVisible, toggleCalendar] = useState(true);
 
   const onChange = (nextValue) => {
     setValue(nextValue)
-    // console.log(value)
-    // console.log(value.getDate())
-    // console.log(value.getMonth())
   }
 
   const reformatDate = (calendarDate) => {
@@ -55,7 +53,7 @@ function SleepLogs(props){
   const filteredDay = (selectedDate, sleepData) => {
     return sleepData.filter(day => day.date === selectedDate);
   }
-  
+
   if (isLoaded(sleepData)){
     let displayDay;
     let message;
@@ -84,6 +82,7 @@ function SleepLogs(props){
     return(
       <React.Fragment>
         <FadeIn transitionDuration='1000'>
+          <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>List View</button>
         <div className="calendar">
           <Calendar
             onChange={onChange}
