@@ -21,8 +21,8 @@ function UserSettings(){
   return(
     <React.Fragment>
       <FadeIn transitionDuration="1000">
-        <h1 className="center">Email: {auth.currentUser.email}</h1>
-        <h2 className="center">Update Password:</h2>
+        <h2 className="center">{auth.currentUser.email}</h2><br></br><br></br>
+        <h3 className="center">Update Password:</h3>
         <form className="form" onSubmit={doChangePass}>
           <input type='password' name='password' placeholder='New Password'/>
           <button className="button" type='submit'>Update Password</button>
