@@ -44,8 +44,10 @@ function SleepLogs(props){
     if (calendarVisible){
       return(
         <React.Fragment>
-        <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>List View</button>
-        <SleepCalendar userEmail={props.userEmail} onClickAdd={props.onClickAdd} onSleepSelection={props.onSleepSelection}/>
+        <div className="button-div">
+          <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>List View</button>
+          <SleepCalendar userEmail={props.userEmail} onClickAdd={props.onClickAdd} onSleepSelection={props.onSleepSelection}/>
+        </div>
         </React.Fragment>
       )
     }
