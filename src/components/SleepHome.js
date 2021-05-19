@@ -148,8 +148,9 @@ function SleepHome(props){
             <div>
               <XYPlot
                 xType="ordinal"
-                width={500}
+                width={490}
                 height={300}
+                padding={10}
                 className="bar-chart">
                 <HorizontalGridLines />
                 <VerticalBarSeries
