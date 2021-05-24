@@ -202,6 +202,9 @@ a{
 .react-calendar__navigation button {
   font-size: 1em;
   color: white;
+  &:hover {
+    color: rgb(35, 24, 91);
+  };
 }
 
 .react-calendar__navigation__label {
