@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.scss';
-import './css/blob.scss';
 import './css/stars.scss';
 import App from './components/App';
 import {createStore} from 'redux';

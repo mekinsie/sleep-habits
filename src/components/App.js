@@ -10,9 +10,6 @@ function App() {
   return (
     <Router>
       <Stars/>
-      {/* <div className="container">
-      <div className="moving_shape"></div>
-      </div> */}
       <Switch>
         <Route path="/login">
           <Login />
