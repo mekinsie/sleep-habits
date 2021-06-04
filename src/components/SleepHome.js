@@ -25,38 +25,38 @@ const HomeHeader = styled.h3`
   text-transform: uppercase;
   `;
 
-  const WeekDate = styled.h2`
-    text-align: center;
-    color: white;
-    font-size: 1.95em;
-    width: 500px;
-    letter-spacing: 2px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Source Sans Pro', sans-serif;
-  `;
+const WeekDate = styled.h2`
+  text-align: center;
+  color: white;
+  font-size: 1.95em;
+  width: 500px;
+  letter-spacing: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Source Sans Pro', sans-serif;
+`;
 
-  const GraphTitle = styled.h3`
+const GraphTitle = styled.h3`
   text-align: center;
   margin-top: 50px;
   width: 500px;
   margin-left: auto;
   margin-right: auto;
-  `;
+`;
 
-  const Notes = styled.p`
+const Notes = styled.p`
   width: 430px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   opacity: 0.6;
-  `;
+`;
 
-  const Message = styled.p`
+const Message = styled.p`
   width: 500px;
   margin: auto;
   margin-top: 10px;
-  `;
+`;
 
 function SleepHome(props){
 
