@@ -52,6 +52,12 @@ const HomeHeader = styled.h3`
   opacity: 0.6;
   `;
 
+  const Message = styled.p`
+  width: 500px;
+  margin: auto;
+  margin-top: 10px;
+  `;
+
 function SleepHome(props){
 
   useFirestoreConnect(() => {
@@ -135,7 +141,7 @@ function SleepHome(props){
             </Welcome>
             <HomeHeader>This week's sleep data</HomeHeader>
             <weekDate> {week}</weekDate>
-            <p className="center">{message}</p>
+            <Message className="center">{message}</Message>
           </FadeIn>
         </React.Fragment>
       )
