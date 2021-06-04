@@ -6,33 +6,42 @@ import { useFirestoreConnect, isLoaded } from 'react-redux-firebase';
 import styled from 'styled-components';
 import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalBarSeries, LineSeries} from 'react-vis';
 
-const HomeHeader = styled.h1`
+const Welcome = styled.div`
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  font-size: 16px;
+  text-align: center;
+`;
+
+const HomeHeader = styled.h3`
   text-align: center;
   color: white;
   width: 500px;
-  margin-bottom: 20px;
-  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'Cormorant', serif;
+  margin-top: 60px;
+  text-transform: uppercase;
   `;
 
-  const GraphTitle = styled.h2`
+  const WeekDate = styled.h2`
+    text-align: center;
+    color: white;
+    font-size: 1.95em;
+    width: 500px;
+    letter-spacing: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Source Sans Pro', sans-serif;
+  `;
+
+  const GraphTitle = styled.h3`
   text-align: center;
   margin-top: 50px;
   width: 500px;
   margin-left: auto;
   margin-right: auto;
-  // font-family: Boska-Medium;
-  font-family: 'Cormorant', serif;
-  `;
-
-  const Welcome = styled.div`
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-  font-family: 'Cormorant', serif;
   `;
 
   const Notes = styled.p`
@@ -58,6 +67,7 @@ function SleepHome(props){
   const calculateSleepHours = (data, i) => {
     return Math.abs( (parseInt(data[i].bedTime.substring(0,2))) + (parseInt(data[i].bedTime.substring(3,5))/60) - (parseInt(data[i].wakeTime.substring(0,2)) + (parseInt(data[i].wakeTime.substring(3,5))/60)) )
   }
+
   const getGraphData = (data) => {
     let graphData = []
     for(let i=0; i < data.length; i++){
@@ -118,13 +128,13 @@ function SleepHome(props){
           <FadeIn transitionDuration='1000'>
             <Welcome>
               <h1 className="center">Welcome!</h1>
-              <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday. The graphs below can help you to visualize which days need better sleep habits.</p>
-            </Welcome>
+              <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday.</p>
             <div className="button-div">
               <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
             </div>
-            <HomeHeader>This week's sleep data :</HomeHeader>
-            <HomeHeader>{week}</HomeHeader>
+            </Welcome>
+            <HomeHeader>This week's sleep data</HomeHeader>
+            <weekDate> {week}</weekDate>
             <p className="center">{message}</p>
           </FadeIn>
         </React.Fragment>
@@ -134,15 +144,15 @@ function SleepHome(props){
       return(
         <React.Fragment>
           <FadeIn transitionDuration='1000'>
-            <Welcome>
               <h1 className="center">Welcome!</h1>
-              <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday. The graphs below can help you to visualize which days need better sleep habits.</p>
+            <Welcome>
+              <p>Track your sleep habits by inputting your sleep time and wake time for each day. The goal is to have have a consistent schedule where you wake up and go to bed at the same time everyday.</p>
             </Welcome>
             <div className="button-div">
               <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
             </div>
-            <HomeHeader>This week's sleep data :</HomeHeader>
-            <HomeHeader>{week}</HomeHeader>
+            <HomeHeader>This week's sleep data</HomeHeader>
+            <WeekDate>{week}</WeekDate>
             <p className="center">{message}</p>
             <GraphTitle>Hours of Sleep</GraphTitle>
             <div>

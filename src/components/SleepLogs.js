@@ -8,15 +8,25 @@ import styled from 'styled-components';
 import 'react-calendar/dist/Calendar.css';
 import SleepCalendar from './SleepCalendar';
 
-const HomeHeader = styled.h1`
+const HomeHeader = styled.h3`
   text-align: center;
   color: white;
   width: 500px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
-  font-family: 'Cormorant', serif;
+  text-transform: uppercase;
   `;
+
+const WeekDate = styled.h2`
+  text-align: center;
+  color: white;
+  font-size: 1.95em;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  font-family: 'Source Sans Pro', sans-serif;
+`;
 
 function SleepLogs(props){
   const [calendarVisible, toggleCalendar] = useState(false);
@@ -58,8 +68,8 @@ function SleepLogs(props){
             <button className="button" onClick={() => toggleCalendar(!calendarVisible)}>Calendar View</button>
             <button className="button" onClick={props.onClickAdd}>Add sleep log</button>
           </div>
-          <HomeHeader>This week's sleep logs:</HomeHeader>
-          <HomeHeader>{week}</HomeHeader>
+          <HomeHeader>This week's sleep logs</HomeHeader>
+          <WeekDate>{week}</WeekDate>
           <p className="center">{message}</p>
           <div className="button-div">
             <div className="content-pad">
